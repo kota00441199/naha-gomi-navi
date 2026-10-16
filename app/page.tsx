@@ -42,6 +42,9 @@ export default function App() {
     function selectPhoto(event: ChangeEvent<HTMLInputElement>) {
         const photo = event.target.files?.[0];
         event.target.value = '';
+        receivePhoto(photo);
+    }
+    function receivePhoto(photo: File | undefined) {
         if (!photo)
             return;
         clearResult();
@@ -109,7 +112,7 @@ export default function App() {
       <div className="workspace">
         <section className="panel"><div className="section-heading"><span className="step">01</span><div><h2>写真から調べる</h2><p>まずは、品物を1つだけ</p></div></div>
           <form onSubmit={submit}>
-            <PhotoInput preview={preview} busy={busy} onSelect={selectPhoto} onInvalid={() => { setFile(null); setError('写真を表示できません。別の画像を選んでください。'); }}/>
+            <PhotoInput preview={preview} busy={busy} onSelect={selectPhoto} onCapture={receivePhoto} onInvalid={() => { setFile(null); setError('写真を表示できません。別の画像を選んでください。'); }}/>
             <label className="field-label" htmlFor="notes">品物の補足 <span>任意</span></label>
             <textarea id="notes" rows={2} value={notes} maxLength={300} disabled={busy} placeholder="例：飲み終えたジュースの容器です" onChange={e => { setNotes(e.target.value); clearResult(); }}/>
             <button className="button analyze wide" type="submit" disabled={!file || busy || connection !== 'ready'}>{busy ? <><LoaderCircle className="spin" size={18}/> 写真を確認しています…</> : <>この写真で候補を探す <ArrowRight size={18}/></>}</button>
