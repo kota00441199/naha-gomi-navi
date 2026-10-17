@@ -1,0 +1,12 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {decodeSession,encodeSession,type Session} from '../src/lib/storage';
+import {items,unknownItem} from '../src/lib/data';
+import {initialAnswers,estimate} from '../src/lib/engine';
+const item=items.find(i=>i.id==='sofa')!;
+const answers={...initialAnswers,spring:'yes' as const,seats:'1' as const,limits:'no' as const,quantity:2};
+const session:Session={entries:[{key:'one',item,answers,result:estimate(item,answers)}],payment:'cashless',draft:{item,answers,stage:1,editingKey:'one'}};
+test('品目・数量・支払い・編集中の入力を復元',()=>{assert.deepEqual(decodeSession(encodeSession(session)),session)});
+test('保存された古い金額を信用せずルールから再計算',()=>{const raw=JSON.parse(encodeSession(session));raw.entries[0].result={unit:1};const restored=decodeSession(JSON.stringify(raw));assert.equal(restored.entries[0].result.unit,1270)});
+test('未登録品目も要確認のまま復元',()=>{const unknown=unknownItem('未知の品物');const s={...session,draft:null,entries:[{key:'x',item:unknown,answers,result:estimate(unknown,answers)}]};const restored=decodeSession(encodeSession(s));assert.equal(restored.entries[0].result.unit,null);assert.equal(restored.entries[0].item.checkedAt,null)});
+test('破損・別バージョン・不正入力を拒否',()=>{assert.throws(()=>decodeSession('{'));for(const change of [(r:any)=>r.version=9,(r:any)=>r.entries[0].answers.quantity=-1,(r:any)=>r.entries[0].answers.weight='10',(r:any)=>r.entries[0].answers.limits='fake',(r:any)=>r.draft.editingKey='missing']){const raw=JSON.parse(encodeSession(session));change(raw);assert.throws(()=>decodeSession(JSON.stringify(raw)))}});
