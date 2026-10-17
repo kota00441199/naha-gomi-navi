@@ -172,7 +172,6 @@ type ScheduledItem = WasteItem & {
   collected: boolean;
 };
 
-const router = useRouter();
 
 
 
@@ -181,6 +180,7 @@ const router = useRouter();
 const APPLICATION_URL = "";
 
 export default function App() {
+    const router = useRouter();
   const [query, setQuery] = useState("");
   const [showList, setShowList] = useState(false);
   const [category, setCategory] = useState("すべて");
