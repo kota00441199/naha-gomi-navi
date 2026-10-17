@@ -10,6 +10,7 @@ const {parseClassification}=await load('lib/classification');
 const {RULES,ITEM_IDS,canShowRule}=await load('lib/rules');
 const {RuleGuide}=await load('components/RuleGuide');
 const {default:App}=await load('app/page');
+const {preparePhoto}=await load('lib/prepare-photo');
 const png=Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aH1cAAAAASUVORK5CYII=','base64');
 const good={itemId:'pet',confidence:'high',observation:'透明な飲料容器が見えます。'};
 function request(data=png,notes='',include=true){const f=new FormData();if(include)f.append('file',new File([data],'test.png',{type:'image/png'}));f.append('notes',notes);return new Request('https://test.invalid/api/analyze',{method:'POST',body:f});}
@@ -17,6 +18,42 @@ const reply=(value=good,finish='STOP')=>Response.json({candidates:[{finishReason
 const opts=(other={})=>({apiKey:'fake-test-key',model:'gemini-3.5-flash-lite',consumeQuota:async()=>true,fetcher:async()=>reply(),...other});
 let passed=0;
 async function check(name,fn){await fn();passed++;console.log('PASS '+name);}
+// Browser image APIs are stubbed here; real camera/browser checks remain separate.
+async function withPhotoEnvironment(options, fn) {
+ const originals = {Image:globalThis.Image, document:globalThis.document, create:URL.createObjectURL, revoke:URL.revokeObjectURL};
+ const state = {draws:0, revoked:0};
+ globalThis.Image = class {naturalWidth=options.width ?? 4000; naturalHeight=options.height ?? 3000; async decode(){await options.decode?.();}};
+ const canvas = {width:0,height:0,getContext:()=>({fillRect(){},drawImage(){state.draws++;}}),toBlob(callback){options.beforeBlob?.();callback(new Blob([new Uint8Array(options.outputBytes ?? 1024)],{type:'image/jpeg'}));}};
+ globalThis.document = {createElement:()=>canvas};
+ URL.createObjectURL = ()=>'blob:test'; URL.revokeObjectURL = ()=>{state.revoked++;};
+ try {await fn(state,canvas);} finally {
+  for (const key of ['Image','document']) {if(originals[key]===undefined) delete globalThis[key];else globalThis[key]=originals[key];}
+  URL.createObjectURL=originals.create;URL.revokeObjectURL=originals.revoke;
+ }
+}
+await check('5MiB超の元画像を縮小して送信できる',async()=>withPhotoEnvironment({},async(state,canvas)=>{
+ const result=await preparePhoto(new File([new Uint8Array(6*1024*1024)],'large.jpg'));
+ assert.equal(result.type,'image/jpeg');assert.equal(result.size,1024);assert.equal(canvas.width,1600);assert.equal(canvas.height,1200);assert.equal(state.revoked,1);
+}));
+await check('元画像20MiB超を拒否',async()=>assert.rejects(()=>preparePhoto(new File([new Uint8Array(20*1024*1024+1)],'large.jpg')),/20MiB/));
+await check('24M画素超を描画前に拒否',async()=>withPhotoEnvironment({width:6000,height:5000},async(state)=>{
+ await assert.rejects(()=>preparePhoto(new File(['x'],'large.jpg')),/解像度/);assert.equal(state.draws,0);assert.equal(state.revoked,1);
+}));
+await check('縮小後5MiB超を拒否',async()=>withPhotoEnvironment({outputBytes:5*1024*1024+1},async(state)=>{
+ await assert.rejects(()=>preparePhoto(new File(['x'],'large.jpg')),/縮小後/);assert.equal(state.revoked,1);
+}));
+await check('デコード中のキャンセル後は描画しない',async()=>{
+ const controller=new AbortController();
+ await withPhotoEnvironment({decode:()=>controller.abort()},async(state)=>{
+  await assert.rejects(()=>preparePhoto(new File(['x'],'photo.jpg'),controller.signal),{name:'AbortError'});assert.equal(state.draws,0);assert.equal(state.revoked,1);
+ });
+});
+await check('JPEG変換中のキャンセル後は画像を返さない',async()=>{
+ const controller=new AbortController();
+ await withPhotoEnvironment({beforeBlob:()=>controller.abort()},async(state)=>{
+  await assert.rejects(()=>preparePhoto(new File(['x'],'photo.jpg'),controller.signal),{name:'AbortError'});assert.equal(state.revoked,1);
+ });
+});
 await check('画像と補足を1回のGemini依頼にまとめJSONを返す',async()=>{let calls=0;const r=await analyze(request(png,'飲み物の容器'),opts({fetcher:async(url,init)=>{calls++;const p=JSON.parse(init.body);assert.equal(p.contents[0].parts[0].inlineData.mimeType,'image/png');assert.equal(p.generationConfig.responseMimeType,'application/json');assert.match(p.contents[0].parts[1].text,/飲み物/);return reply();}}));assert.equal(r.status,200);assert.equal(r.headers.get('cache-control'),'no-store');assert.deepEqual((await r.json()).classification,good);assert.equal(calls,1);});
 await check('キー未設定は外部通信しない',async()=>assert.equal((await analyze(request(),opts({apiKey:'',consumeQuota:()=>assert.fail(),fetcher:()=>assert.fail()}))).status,503));
 for(const [name,make,status] of [

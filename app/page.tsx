@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { ChangeEvent, FormEvent } from 'react';
 import { ArrowRight, CircleHelp, Leaf, LoaderCircle, Recycle, ShieldCheck } from 'lucide-react';
 import { PhotoInput } from '@/components/PhotoInput';
@@ -7,7 +7,7 @@ import { RuleGuide } from '@/components/RuleGuide';
 import { ItemIcon } from '@/components/ItemIcon';
 import { ITEM_IDS, RULES, SOURCES, isItemId, type ItemId } from '@/lib/rules';
 import { isRecord, parseClassification, type Classification } from '@/lib/classification';
-import { preparePhoto } from '@/lib/prepare-photo';
+import { MAX_SOURCE_BYTES, preparePhoto } from '@/lib/prepare-photo';
 export default function App() {
     const [file, setFile] = useState<File | null>(null);
     const [preview, setPreview] = useState('');
@@ -19,16 +19,25 @@ export default function App() {
     const [selected, setSelected] = useState<ItemId | null>(null);
     const [origin, setOrigin] = useState<'ai' | 'manual'>('manual');
     const [revision, setRevision] = useState(0);
+    const [connectionAttempt, setConnectionAttempt] = useState(0);
+    const pending = useRef<AbortController | null>(null);
+    const [cancelled, setCancelled] = useState(false);
+    useEffect(() => () => {
+        pending.current?.abort();
+        pending.current = null;
+    }, []);
     useEffect(() => {
+        let active = true;
         const controller = new AbortController();
+        setConnection('checking');
         const timer = window.setTimeout(() => controller.abort(), 5000);
         fetch('/api/health', { signal: controller.signal })
             .then(async (r) => { if (!r.ok)
-            throw new Error(); const d = await r.json(); setConnection(isRecord(d) && d.configured === true ? 'ready' : 'unavailable'); })
-            .catch(() => setConnection('unavailable'))
+            throw new Error(); const d = await r.json(); if (active) setConnection(!controller.signal.aborted && isRecord(d) && d.configured === true ? 'ready' : 'unavailable'); })
+            .catch(() => { if (active) setConnection('unavailable'); })
             .finally(() => window.clearTimeout(timer));
-        return () => { controller.abort(); window.clearTimeout(timer); };
-    }, []);
+        return () => { active = false; controller.abort(); window.clearTimeout(timer); };
+    }, [connectionAttempt]);
     useEffect(() => {
         if (!file) {
             setPreview('');
@@ -38,7 +47,14 @@ export default function App() {
         setPreview(url);
         return () => URL.revokeObjectURL(url);
     }, [file]);
-    function clearResult() { setClassification(null); setSelected(null); setError(''); }
+    function clearResult() { setClassification(null); setSelected(null); setError(''); setCancelled(false); }
+    function cancelAnalysis() {
+        pending.current?.abort();
+        pending.current = null;
+        setBusy(false);
+        clearResult();
+        setCancelled(true);
+    }
     function selectPhoto(event: ChangeEvent<HTMLInputElement>) {
         const photo = event.target.files?.[0];
         event.target.value = '';
@@ -49,8 +65,8 @@ export default function App() {
             return;
         clearResult();
         setFile(null);
-        if (photo.size > 5 * 1024 * 1024) {
-            setError('写真は5MB以下にしてください。');
+        if (photo.size > MAX_SOURCE_BYTES) {
+            setError('元の写真は20MiB以下にしてください。');
             return;
         }
         if (!/\.(jpe?g|png|webp)$/i.test(photo.name)) {
@@ -60,6 +76,7 @@ export default function App() {
         setFile(photo);
     }
     function choose(id: ItemId, source: 'ai' | 'manual') {
+        if (source === 'manual' && pending.current) cancelAnalysis();
         setSelected(id);
         setOrigin(source);
         setRevision(n => n + 1);
@@ -73,18 +90,24 @@ export default function App() {
     }
     async function submit(event: FormEvent) {
         event.preventDefault();
-        if (!file || busy || connection !== 'ready')
+        if (!file || pending.current || connection !== 'ready')
             return;
         clearResult();
         setBusy(true);
         const controller = new AbortController();
+        pending.current = controller;
         const timer = window.setTimeout(() => controller.abort(), 75000);
         try {
             const form = new FormData();
-            form.append('file', await preparePhoto(file));
+            const photo = await preparePhoto(file, controller.signal);
+            if (pending.current !== controller) return;
+            controller.signal.throwIfAborted();
+            form.append('file', photo);
             form.append('notes', notes);
             const response = await fetch('/api/analyze', { method: 'POST', body: form, signal: controller.signal });
             const body: unknown = await response.json().catch(() => null);
+            if (pending.current !== controller) return;
+            controller.signal.throwIfAborted();
             if (!response.ok)
                 throw new Error(isRecord(body) && typeof body.detail === 'string' ? body.detail : '送信できませんでした。');
             const value = isRecord(body) && body.mode === 'gemini' ? parseClassification(body.classification) : null;
@@ -95,11 +118,15 @@ export default function App() {
                 choose(value.itemId, 'ai');
         }
         catch (e) {
+            if (pending.current !== controller) return;
             setError(e instanceof Error && e.name === 'AbortError' ? '時間切れになりました。品目から調べることもできます。' : e instanceof Error ? e.message : '通信に失敗しました。');
         }
         finally {
             window.clearTimeout(timer);
-            setBusy(false);
+            if (pending.current === controller) {
+                pending.current = null;
+                setBusy(false);
+            }
         }
     }
     return <div className="site-shell">
@@ -117,11 +144,14 @@ export default function App() {
             <textarea id="notes" rows={2} value={notes} maxLength={300} disabled={busy} placeholder="例：飲み終えたジュースの容器です" onChange={e => { setNotes(e.target.value); clearResult(); }}/>
             <button className="button analyze wide" type="submit" disabled={!file || busy || connection !== 'ready'}>{busy ? <><LoaderCircle className="spin" size={18}/> 写真を確認しています…</> : <>この写真で候補を探す <ArrowRight size={18}/></>}</button>
             <p className="connection" role="status">{connection === 'checking' ? '写真判定の接続を確認中…' : connection === 'ready' ? '写真判定の接続設定あり' : '写真判定に接続できません。下の品目選択は使えます。'}</p>
+            {connection === 'unavailable' && <button type="button" className="button outline wide" onClick={() => { setConnection('checking'); setConnectionAttempt(n => n + 1); }}>接続を再確認</button>}
             <p className="fine">送信すると写真と補足をGoogleのGemini APIへ送ります。このアプリには画像や回答を保存しません。</p>
           </form>
         </section>
         <section id="result-panel" className="panel result-panel" aria-busy={busy}><div className="section-heading"><span className="step">02</span><div><h2>確認して、分別する</h2><p>材質や状態は、実物でチェック</p></div></div>
           {busy && <div className="working" role="status"><LoaderCircle className="spin" size={28}/><p>品物の候補を探しています。<br /><span>そのまま少しお待ちください。</span></p></div>}
+          {busy && <button type="button" className="button outline wide" onClick={cancelAnalysis}>判定をキャンセル</button>}
+          {cancelled && <p className="fine" role="status">判定の待機をキャンセルしました。品目から調べるか、再度写真を送れます。送信済みの判定は利用回数に含まれる場合があります。</p>}
           {error && <div className="error" role="alert">{error}</div>}
           {classification && <div className="observation"><span className="small-label">AIが写真から読み取ったこと</span><p>{classification.observation}</p><span className="fine">候補の判断です。正しさを保証する表示ではありません。</span></div>}
           {classification?.itemId === 'hazard' && <div className="notice"><strong>このアプリでは捨て方を決めません</strong><p>電池・刃物・スプレー缶などは写真だけで判断せず、<a href={SOURCES.danger} target="_blank" rel="noreferrer">市の案内</a>と<a href={SOURCES.dictionary} target="_blank" rel="noreferrer">品目検索</a>を確認してください。</p></div>}
@@ -130,7 +160,8 @@ export default function App() {
         </section>
       </div>
       <section className="manual" aria-labelledby="manual-heading"><div className="manual-heading"><div><p className="eyebrow">名前が分かるときは</p><h2 id="manual-heading">品目から調べる</h2></div><span>写真の送信・AIの利用なし</span></div>
-        <div className="item-grid">{ITEM_IDS.map(id => <button className={selected === id ? 'item-button selected' : 'item-button'} key={id} disabled={busy} onClick={() => choose(id, 'manual')}><ItemIcon id={id}/><span>{RULES[id].short}</span><ArrowRight size={14}/></button>)}</div>
+        <div className="item-grid">{ITEM_IDS.map(id => <button className={selected === id ? 'item-button selected' : 'item-button'} key={id} onClick={() => choose(id, 'manual')}><ItemIcon id={id}/><span>{RULES[id].short}</span><ArrowRight size={14}/></button>)}</div>
+        {busy && <p className="fine">品目を選ぶと、写真判定の待機をキャンセルして切り替えます。</p>}
         <p className="fine">AIの候補が違う場合も、ここから選び直せます。条件が合わない品物は公式検索へ。</p>
       </section>
       <section className="about"><CircleHelp size={22}/><div><h2>迷ったら、公式の案内へ。</h2><p>電池、刃物、割れたガラス、スプレー缶などは、このアプリの分別案内の対象外です。事業所のごみや、那覇市以外のルールには対応していません。</p><a href={SOURCES.dictionary} target="_blank" rel="noreferrer">那覇市のごみ・資源分別検索 <ArrowRight size={14}/></a></div></section>

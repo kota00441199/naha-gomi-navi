@@ -131,6 +131,6 @@ export function PhotoInput({ preview, busy, onSelect, onCapture, onInvalid }: Pr
       <button type="button" className="button green" disabled={busy || cameraOpen} onClick={openCamera}>許可したので、もう一度開く</button>
       <p>設定を変更できない場合は「写真を選ぶ」も使えます。</p>
     </section>}
-    <p className="fine">JPEG・PNG・WebP ／ 5MBまで。撮影した写真は、判定ボタンを押すまで送信されません。</p>
+    <p className="fine">JPEG・PNG・WebP ／ 元写真20MiB・2400万画素まで。送信前に長辺1600px以下へ縮小します。撮影した写真は、判定ボタンを押すまで送信されません。</p>
   </>;
 }
