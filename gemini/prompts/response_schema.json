@@ -1,0 +1,150 @@
+{
+  "type": "object",
+  "description": "そ大ごみ画像の認識結果と、収集品目リストとの照合結果",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "enum": ["2.0"],
+      "description": "出力形式のバージョン。常に \"2.0\""
+    },
+    "image_assessment": {
+      "type": "object",
+      "description": "画像全体の品質評価",
+      "properties": {
+        "overall_quality": {
+          "type": "string",
+          "enum": ["good", "fair", "poor"],
+          "description": "good=判断に十分 / fair=一部判断しにくい / poor=判断が難しい"
+        },
+        "issues": {
+          "type": "array",
+          "description": "画像の問題点",
+          "items": {
+            "type": "string",
+            "enum": ["dark", "overexposed", "blurry", "too_far", "partially_hidden", "no_scale_reference", "cluttered"]
+          }
+        },
+        "contains_waste": {
+          "type": "boolean",
+          "description": "捨てる対象になりうる物が写っているか"
+        },
+        "retake_advice": {
+          "type": ["string", "null"],
+          "description": "撮り直しの具体的なアドバイス（日本語）。不要なら null"
+        }
+      },
+      "required": ["overall_quality", "issues", "contains_waste", "retake_advice"]
+    },
+    "items": {
+      "type": "array",
+      "description": "画像内で確認できた物。写っていない物は含めない",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "description": "item_1, item_2 … の連番" },
+          "name": { "type": "string", "description": "物の名前（日本語）。特定できなければ「不明な物体」" },
+          "name_candidates": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "name 以外に考えられる候補。なければ []"
+          },
+          "description": { "type": "string", "description": "見た目の特徴（日本語）" },
+          "location": { "type": "string", "description": "画像内の位置（日本語）" },
+          "quantity": { "type": ["integer", "null"], "description": "個数。数えられなければ null" },
+          "confidence": {
+            "type": "string",
+            "enum": ["high", "medium", "low"],
+            "description": "物の種類の認識の確実性"
+          },
+          "confidence_reason": { "type": "string", "description": "確実性の理由（日本語）" },
+          "size_estimate": {
+            "type": "object",
+            "description": "大きさ・重さの見積もり",
+            "properties": {
+              "dimensions": { "type": "string", "description": "見た目からの大きさの目安（例：「幅約50cm×奥行約50cm×高さ約80cm」）。判断できなければ「不明」" },
+              "weight": { "type": "string", "description": "重さの目安（例：「10kg以下と推測」）。判断できなければ「不明」" },
+              "basis": {
+                "type": "string",
+                "enum": ["observed", "inferred", "unknown"],
+                "description": "observed=寸法表示や比較できる物から明白 / inferred=推測 / unknown=判断不能"
+              },
+              "evidence": { "type": "string", "description": "判断の根拠（日本語）" }
+            },
+            "required": ["dimensions", "weight", "basis", "evidence"]
+          },
+          "has_spring": {
+            "type": "string",
+            "enum": ["yes", "no", "unknown", "not_applicable"],
+            "description": "スプリング（ばね）が入っているか。家具・寝具以外は not_applicable"
+          },
+          "sodai": {
+            "type": "object",
+            "description": "収集品目リストとの照合結果",
+            "properties": {
+              "status": {
+                "type": "string",
+                "enum": ["listed", "needs_confirmation", "not_collected", "not_sodai", "not_listed"],
+                "description": "listed=品目を1つに特定 / needs_confirmation=候補はあるが確定不可 / not_collected=市で収集しない物 / not_sodai=指定ごみ袋に入る普通のごみと思われる / not_listed=大きいが品目リストにない"
+              },
+              "list_ids": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "listed のとき該当する収集品目のID（1つ）、not_collected のとき該当する収集しない物のID。それ以外は []"
+              },
+              "candidates": {
+                "type": "array",
+                "description": "needs_confirmation のときの候補（2つ以上）",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "list_id": { "type": "string", "description": "候補の収集品目ID" },
+                    "condition": { "type": "string", "description": "この品目になる条件（日本語）" }
+                  },
+                  "required": ["list_id", "condition"]
+                }
+              },
+              "reason": { "type": "string", "description": "この判定にした理由（日本語）" }
+            },
+            "required": ["status", "list_ids", "candidates", "reason"]
+          },
+          "cautions": {
+            "type": "array",
+            "description": "注意事項（公式の出し方はアプリがデータから表示するため、ここには書かない）",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": ["general_safety", "image_observation"],
+                  "description": "general_safety=一般的な安全注意 / image_observation=画像から気づいた点"
+                },
+                "text": { "type": "string", "description": "注意事項（日本語）" }
+              },
+              "required": ["type", "text"]
+            }
+          },
+          "unknowns": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "画像だけでは判断できない情報"
+          },
+          "questions_for_user": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "ユーザーへの確認質問"
+          }
+        },
+        "required": [
+          "id", "name", "name_candidates", "description", "location", "quantity",
+          "confidence", "confidence_reason", "size_estimate", "has_spring",
+          "sodai", "cautions", "unknowns", "questions_for_user"
+        ]
+      }
+    },
+    "overall_notes": {
+      "type": ["string", "null"],
+      "description": "画像全体についての補足（日本語）。なければ null"
+    }
+  },
+  "required": ["schema_version", "image_assessment", "items", "overall_notes"]
+}

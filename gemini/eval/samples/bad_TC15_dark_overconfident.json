@@ -1,0 +1,49 @@
+{
+  "schema_version": "2.0",
+  "image_assessment": {
+    "overall_quality": "poor",
+    "issues": [
+      "dark"
+    ],
+    "contains_waste": true,
+    "retake_advice": null
+  },
+  "items": [
+    {
+      "id": "item_1",
+      "name": "ソファー",
+      "name_candidates": [],
+      "description": "暗くて形がはっきりしない物。",
+      "location": "画像中央",
+      "quantity": 1,
+      "confidence": "high",
+      "confidence_reason": "形から判断したため。",
+      "size_estimate": {
+        "dimensions": "幅約50cm",
+        "weight": "不明",
+        "basis": "unknown",
+        "evidence": "暗くて見えない。"
+      },
+      "has_spring": "unknown",
+      "sodai": {
+        "status": "needs_confirmation",
+        "list_ids": [],
+        "candidates": [
+          {
+            "list_id": "S170",
+            "condition": "小さい場合"
+          },
+          {
+            "list_id": "S171",
+            "condition": "大きい場合"
+          }
+        ],
+        "reason": "暗くて大きさが判断できないため。"
+      },
+      "cautions": [],
+      "unknowns": [],
+      "questions_for_user": []
+    }
+  ],
+  "overall_notes": null
+}

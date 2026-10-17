@@ -1,0 +1,40 @@
+{
+  "schema_version": "2.0",
+  "image_assessment": {
+    "overall_quality": "good",
+    "issues": [],
+    "contains_waste": true,
+    "retake_advice": null
+  },
+  "items": [
+    {
+      "id": "item_1",
+      "name": "ソファー",
+      "name_candidates": [],
+      "description": "茶色の布張りの2人掛けソファー。",
+      "location": "画像中央",
+      "quantity": 1,
+      "confidence": "high",
+      "confidence_reason": "形がはっきり写っているため。",
+      "size_estimate": {
+        "dimensions": "幅約150cm×奥行約80cm×高さ約80cmと推測",
+        "weight": "不明",
+        "basis": "inferred",
+        "evidence": "形状からの推測です。"
+      },
+      "has_spring": "unknown",
+      "sodai": {
+        "status": "listed",
+        "list_ids": [
+          "S171"
+        ],
+        "candidates": [],
+        "reason": "ソファー（スプリングなし）大に当たるため。"
+      },
+      "cautions": [],
+      "unknowns": [],
+      "questions_for_user": []
+    }
+  ],
+  "overall_notes": null
+}

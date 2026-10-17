@@ -1,0 +1,56 @@
+{
+  "schema_version": "2.0",
+  "image_assessment": {
+    "overall_quality": "good",
+    "issues": [],
+    "contains_waste": true,
+    "retake_advice": null
+  },
+  "items": [
+    {
+      "id": "item_1",
+      "name": "椅子",
+      "name_candidates": [],
+      "description": "灰色の布張りの座面と金属の脚を持つ、会議用の椅子と推測されます。",
+      "location": "画像中央",
+      "quantity": 1,
+      "confidence": "high",
+      "confidence_reason": "背もたれ・座面・4本の脚がはっきり写っているため。",
+      "size_estimate": {
+        "dimensions": "幅約50cm×奥行約50cm×高さ約80cmと推測",
+        "weight": "10kg以下と推測",
+        "basis": "inferred",
+        "evidence": "床のタイルの大きさとの比較からの推測です。"
+      },
+      "has_spring": "no",
+      "sodai": {
+        "status": "needs_confirmation",
+        "list_ids": [],
+        "candidates": [
+          {
+            "list_id": "S011",
+            "condition": "1立方メートル未満かつ10kg以下の場合"
+          },
+          {
+            "list_id": "S012",
+            "condition": "1立方メートル以上、または10kgを超える場合"
+          }
+        ],
+        "reason": "椅子（スプリングなし）に当たると推測されますが、重さが10kgを超えるか画像からは判断できないため。"
+      },
+      "cautions": [
+        {
+          "type": "image_observation",
+          "text": "脚にキャスターが付いているように見えます。"
+        }
+      ],
+      "unknowns": [
+        "正確な重さ"
+      ],
+      "questions_for_user": [
+        "椅子の重さは10kgを超えますか？"
+      ]
+    }
+  ],
+  "overall_notes": null
+}

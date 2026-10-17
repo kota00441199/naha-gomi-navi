@@ -1,0 +1,739 @@
+{
+ "source": {
+  "title": "那覇市 そ大ごみ処理券 取扱所（処理券店舗リスト）",
+  "url": "https://www.naha-sodaigomi.com/receipts/assets/docment/20260721_ticket_sales_office_list.pdf",
+  "document_date": "2026-07-21（ファイル名より）",
+  "retrieved": "2026-10-17"
+ },
+ "note": "PDFの表を目で見て転記したもの。別のメンバーによる照合は未実施。sells の列は PDF の「そ大」「マットレス」（2,600円券）「ソファ（1人掛）」（1,270円券）「ソファ（2人以上）」（1,940円券）に対応。電話番号・住所は PDF の表記のまま（例：丸大 長田店の電話番号は PDF では 198- で始まる）。",
+ "stores": [
+  {
+   "id": "T01",
+   "area": "本庁地区",
+   "name": "ローソン那覇若狭二丁目",
+   "address": "那覇市若狭2-3-13",
+   "phone": "098-864-1511",
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T02",
+   "area": "本庁地区",
+   "name": "ローソン旭橋駅前店",
+   "address": "那覇市旭町1-9",
+   "phone": "098-866-8684",
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": false,
+    "spring_1940": false
+   }
+  },
+  {
+   "id": "T03",
+   "area": "本庁地区",
+   "name": "ローソン那覇沖映通り",
+   "address": "那覇市牧志2丁目7番4号",
+   "phone": "098-963-5430",
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": false,
+    "spring_1940": false
+   }
+  },
+  {
+   "id": "T04",
+   "area": "本庁地区",
+   "name": "サンエー那覇メインプレイス",
+   "address": "那覇市おもろまち4丁目4-9",
+   "phone": null,
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T05",
+   "area": "本庁地区",
+   "name": "サンエー銘苅店",
+   "address": "那覇市銘苅2丁目11番12号",
+   "phone": null,
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T06",
+   "area": "本庁地区",
+   "name": "サンエーV21じょうがく食品館",
+   "address": "那覇市楚辺1丁目14番10号",
+   "phone": null,
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T07",
+   "area": "本庁地区",
+   "name": "かねひで あけぼの店",
+   "address": "那覇市曙3丁目19番地7号",
+   "phone": "098-861-7014",
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": false,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T08",
+   "area": "本庁地区",
+   "name": "かねひで にしのまち市場店",
+   "address": "那覇市西3丁目3番地4号",
+   "phone": "098-863-4500",
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T09",
+   "area": "本庁地区",
+   "name": "かねひで 壺川店",
+   "address": "那覇市壺川3丁目1番地5",
+   "phone": "098-836-5050",
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": false,
+    "spring_1940": false
+   }
+  },
+  {
+   "id": "T10",
+   "area": "本庁地区",
+   "name": "りうぼう 天久店",
+   "address": "那覇市天久1-2-1",
+   "phone": "098-941-1188",
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T11",
+   "area": "本庁地区",
+   "name": "りうぼう 西町店",
+   "address": "那覇市西2丁目17番6号",
+   "phone": "098-860-8818",
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T12",
+   "area": "本庁地区",
+   "name": "りうぼう デパート店",
+   "address": "那覇市久茂地1-1-1",
+   "phone": "098-867-1171",
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": false
+   }
+  },
+  {
+   "id": "T13",
+   "area": "本庁地区",
+   "name": "マックスバリュー安謝店",
+   "address": "那覇市安謝664-32",
+   "phone": "098-863-3662",
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T14",
+   "area": "本庁地区",
+   "name": "マックスバリュー若狭店",
+   "address": "那覇市若狭1-19-1",
+   "phone": "098-869-1100",
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T15",
+   "area": "本庁地区",
+   "name": "マックスバリュー松山店",
+   "address": "那覇市松山2-22-1",
+   "phone": "098-951-1414",
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T16",
+   "area": "本庁地区",
+   "name": "マックスバリュー新都心めかる店",
+   "address": "那覇市銘苅1-10-15",
+   "phone": "098-941-1105",
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": false,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T17",
+   "area": "本庁地区",
+   "name": "マックスバリュー牧志店",
+   "address": "那覇市牧志2-10-1",
+   "phone": "098-860-5590",
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T18",
+   "area": "本庁地区",
+   "name": "ザ・ビッグエクスプレス壷川店",
+   "address": "那覇市壷川2-4-2",
+   "phone": "098-996-1880",
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T19",
+   "area": "本庁地区",
+   "name": "コープあっぷるタウン",
+   "address": "那覇市おもろまち3-3-1",
+   "phone": "098-941-8020",
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T20",
+   "area": "本庁地区",
+   "name": "ふく薬品まつやま店",
+   "address": "那覇市松山1-34-3 カクテルプラザ1F",
+   "phone": "098-869-3652",
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T21",
+   "area": "本庁地区",
+   "name": "ふく薬品おもろまち店",
+   "address": "那覇市おもろまち3-5-22",
+   "phone": "098-943-2705",
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T22",
+   "area": "真和志地区",
+   "name": "ローソン那覇三原一丁目",
+   "address": "那覇市三原1-13-10",
+   "phone": "098-836-0804",
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": false,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T23",
+   "area": "真和志地区",
+   "name": "ローソン那覇与儀",
+   "address": "那覇市字与儀364-3",
+   "phone": "098-835-3390",
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": false,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T24",
+   "area": "真和志地区",
+   "name": "サンエーV21食品館 繁多川店",
+   "address": "繁多川2丁目17番15号",
+   "phone": null,
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T25",
+   "area": "真和志地区",
+   "name": "サンエーV21よぎ食品館",
+   "address": "那覇市国場1162-2",
+   "phone": null,
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T26",
+   "area": "真和志地区",
+   "name": "サンエーV21つぼがわ食品館",
+   "address": "那覇市古波蔵339-2",
+   "phone": null,
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T27",
+   "area": "真和志地区",
+   "name": "サンエーV21食品館 真嘉比店",
+   "address": "那覇市字真嘉比169番地",
+   "phone": null,
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T28",
+   "area": "真和志地区",
+   "name": "かねひで 繁多川市場店",
+   "address": "那覇市繁多川1丁目5番34号",
+   "phone": "098-996-5030",
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T29",
+   "area": "真和志地区",
+   "name": "りうぼう 国場店",
+   "address": "那覇市国場703",
+   "phone": "098-833-8282",
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T30",
+   "area": "真和志地区",
+   "name": "りうぼう 栄町店",
+   "address": "那覇市安里388-6",
+   "phone": "098-835-5165",
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T31",
+   "area": "真和志地区",
+   "name": "りうぼう 三原店",
+   "address": "那覇市三原1-4-30",
+   "phone": "098-853-4859",
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T32",
+   "area": "真和志地区",
+   "name": "丸大 国場店",
+   "address": "那覇市国場976",
+   "phone": "098-833-1725",
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T33",
+   "area": "真和志地区",
+   "name": "丸大 長田店",
+   "address": "那覇市長田1-17-9",
+   "phone": "198-853-3464",
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T34",
+   "area": "真和志地区",
+   "name": "イオンドラッグ古島店",
+   "address": "那覇市古島2-28-3",
+   "phone": "098-835-5150",
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T35",
+   "area": "真和志地区",
+   "name": "コープこくば店",
+   "address": "那覇市国場386",
+   "phone": "098-831-8400",
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T36",
+   "area": "首里地区",
+   "name": "ローソン首里駅前",
+   "address": "那覇市首里汀良町3丁目74番",
+   "phone": "098-882-1933",
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": false,
+    "spring_1940": false
+   }
+  },
+  {
+   "id": "T37",
+   "area": "首里地区",
+   "name": "サンエーV21食品館 石嶺店",
+   "address": "那覇市首里石嶺町3-4-1",
+   "phone": null,
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T38",
+   "area": "首里地区",
+   "name": "サンエーV21おおな食品館",
+   "address": "那覇市首里大名町3-80",
+   "phone": null,
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T39",
+   "area": "首里地区",
+   "name": "りうぼう 首里店",
+   "address": "那覇市首里久場川町2-122-1",
+   "phone": "098-884-1111",
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T40",
+   "area": "首里地区",
+   "name": "コープ寒川店",
+   "address": "那覇市首里寒川町2-80",
+   "phone": "098-882-2334",
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T41",
+   "area": "首里地区",
+   "name": "コープ首里店",
+   "address": "那覇市首里汀良町3-104-1",
+   "phone": "098-887-5633",
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T42",
+   "area": "小禄地区",
+   "name": "サンエーV21食品館 うえばる団地店",
+   "address": "那覇市字宇栄原869番2",
+   "phone": null,
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T43",
+   "area": "小禄地区",
+   "name": "サンエーV21食品館 高良店",
+   "address": "那覇市高良3丁目2番23号",
+   "phone": null,
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T44",
+   "area": "小禄地区",
+   "name": "サンエーV21食品館 きょうはら店",
+   "address": "那覇市鏡原町35番地-24",
+   "phone": null,
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T45",
+   "area": "小禄地区",
+   "name": "サンエーV21食品館 小禄店",
+   "address": "那覇市字小禄646番地",
+   "phone": null,
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T46",
+   "area": "小禄地区",
+   "name": "マツモトキヨシうえばる団地店",
+   "address": "那覇市字宇栄原869番2",
+   "phone": null,
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": false,
+    "spring_1940": false
+   }
+  },
+  {
+   "id": "T47",
+   "area": "小禄地区",
+   "name": "かねひで ジップマートさつき店",
+   "address": "那覇市宇栄原3丁目14番11号",
+   "phone": "098-851-7740",
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T48",
+   "area": "小禄地区",
+   "name": "かねひで うるく市場店",
+   "address": "那覇市字小禄1281",
+   "phone": "098-995-9710",
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T49",
+   "area": "小禄地区",
+   "name": "イオン那覇店",
+   "address": "那覇市字金城5-10-2",
+   "phone": "098-852-1515",
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T50",
+   "area": "小禄地区",
+   "name": "コープおろく店",
+   "address": "那覇市鏡原34-21",
+   "phone": "098-857-0069",
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T51",
+   "area": "市外",
+   "name": "サンエー豊見城ウイングシティ",
+   "address": "豊見城市字高安261-2",
+   "phone": null,
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": false,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T52",
+   "area": "市外",
+   "name": "サンエーつかざんシティ",
+   "address": "南風原町津嘉山1471-2",
+   "phone": null,
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T53",
+   "area": "市外",
+   "name": "サンエー浦添西海岸パルコシティ",
+   "address": "浦添市西洲三丁目1番地1",
+   "phone": null,
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T54",
+   "area": "市外",
+   "name": "サンエー宜野湾コンベンションシティ",
+   "address": "宜野湾市宇宇治泊三丁目6番1号",
+   "phone": null,
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T55",
+   "area": "市外",
+   "name": "サンエー経塚シティ",
+   "address": "浦添市字経塚652番",
+   "phone": null,
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  },
+  {
+   "id": "T56",
+   "area": "市外",
+   "name": "イオンスタイルてだこ浦西駅前店",
+   "address": "浦添市前田3丁目19-40",
+   "phone": "098-870-5171",
+   "sells": {
+    "sodai": true,
+    "spring_2600": true,
+    "spring_1270": true,
+    "spring_1940": true
+   }
+  }
+ ]
+}
