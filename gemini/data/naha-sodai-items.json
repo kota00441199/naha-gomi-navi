@@ -1,0 +1,4183 @@
+{
+ "source": {
+  "title": "那覇市 そ大ごみインターネット受付「そ大ごみ品目リスト・手数料検索」",
+  "url": "https://www.naha-sodaigomi.com/receipts/home/item",
+  "retrieved": "2026-10-17"
+ },
+ "note": "公式ページの表を機械的に転記したもの。id は転記時に付けた通し番号で、那覇市の番号ではない。size は品目名の「小」「大」から付けた（小＝1㎥未満かつ10kg以下、大＝1㎥以上または10kg超）。",
+ "items": [
+  {
+   "id": "S001",
+   "category": "家事日用品",
+   "name": "アイロン台",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S002",
+   "category": "家具・寝具",
+   "name": "アコーディオンカーテン （レール付）小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S003",
+   "category": "家具・寝具",
+   "name": "アコーディオンカーテン （レール付）大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S004",
+   "category": "その他のもの",
+   "name": "雨戸 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S005",
+   "category": "その他のもの",
+   "name": "雨戸 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S006",
+   "category": "趣味・園芸・工具用品",
+   "name": "編み機",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S007",
+   "category": "その他のもの",
+   "name": "網戸 （４枚まで束ねて300円)",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S008",
+   "category": "その他のもの",
+   "name": "アルミサッシ",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S009",
+   "category": "収納庫・室外用品",
+   "name": "アンテナ （テレビ用）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S010",
+   "category": "家具・寝具",
+   "name": "衣装箱 （ケース）(３つまで重ねて300円)",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S011",
+   "category": "家具・寝具",
+   "name": "椅子 （スプリングなし） 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S012",
+   "category": "家具・寝具",
+   "name": "椅子 （スプリングなし） 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S013",
+   "category": "その他のもの",
+   "name": "板きれ 小 （1ｍ以下に切断し、ひもで束ねる）",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S014",
+   "category": "その他のもの",
+   "name": "板きれ 大 （１ｍ以下に切断し、ひもで束ねる）",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S015",
+   "category": "自転車類",
+   "name": "一輪車 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S016",
+   "category": "自転車類",
+   "name": "一輪車 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S017",
+   "category": "スポーツ・レジャー・遊具",
+   "name": "ウインドサーフィン （購入時セット）",
+   "size": null,
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S018",
+   "category": "趣味・園芸・工具用品",
+   "name": "植木鉢 （中身は抜く） 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S019",
+   "category": "趣味・園芸・工具用品",
+   "name": "植木鉢 （中身は抜く） 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S020",
+   "category": "健康器具",
+   "name": "エアロバイク （自転車型の運動器具）",
+   "size": null,
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S021",
+   "category": "趣味・園芸・工具用品",
+   "name": "枝きりばさみ 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S022",
+   "category": "趣味・園芸・工具用品",
+   "name": "枝きりばさみ 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S023",
+   "category": "楽器・オーディオ製品",
+   "name": "エレクトーン",
+   "size": null,
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S024",
+   "category": "趣味・園芸・工具用品",
+   "name": "園芸用支柱 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S025",
+   "category": "楽器・オーディオ製品",
+   "name": "オーディオ製品 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S026",
+   "category": "楽器・オーディオ製品",
+   "name": "オーディオ製品 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S027",
+   "category": "楽器・オーディオ製品",
+   "name": "オーディオラック 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S028",
+   "category": "楽器・オーディオ製品",
+   "name": "オーディオラック 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S029",
+   "category": "家電製品",
+   "name": "オーブントースター 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S030",
+   "category": "家電製品",
+   "name": "オーブントースター 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S031",
+   "category": "家電製品",
+   "name": "オーブンレンジ 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S032",
+   "category": "家電製品",
+   "name": "オーブンレンジ 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S033",
+   "category": "趣味・園芸・工具用品",
+   "name": "斧 （おの）（指定ごみ袋に入ってもそ大ごみ）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S034",
+   "category": "乳幼児製品",
+   "name": "おもちゃの電動車 （充電池外せないもの）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S035",
+   "category": "家具・寝具",
+   "name": "折畳みソファーベッド （スプリング無し）小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S036",
+   "category": "家具・寝具",
+   "name": "折畳みソファーベッド （スプリング無し）大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S037",
+   "category": "家具・寝具",
+   "name": "折り畳みベッド 小 （スプリングなし）",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S038",
+   "category": "家具・寝具",
+   "name": "折り畳みベッド 大 （スプリングなし）",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S039",
+   "category": "家具・寝具",
+   "name": "折り畳みベッド （Ｓ字バネあり）",
+   "size": null,
+   "fee_yen": 1940,
+   "ticket": {
+    "kind": "spring_1940",
+    "label": "適正処理困難物処理券（1,940円）",
+    "unit_price_yen": 1940,
+    "count": 1
+   }
+  },
+  {
+   "id": "S040",
+   "category": "楽器・オーディオ製品",
+   "name": "オルガン",
+   "size": null,
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S041",
+   "category": "家電製品",
+   "name": "温熱器 （ドーム型）",
+   "size": null,
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S042",
+   "category": "家具・寝具",
+   "name": "カーテンレール 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S043",
+   "category": "家具・寝具",
+   "name": "カーテンレール 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S044",
+   "category": "敷物・室内用品",
+   "name": "カーペット 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S045",
+   "category": "敷物・室内用品",
+   "name": "カーペット 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S046",
+   "category": "家具・寝具",
+   "name": "鏡 大 （鏡台は購入時一式（専用椅子を含む））",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S047",
+   "category": "家具・寝具",
+   "name": "鏡 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S048",
+   "category": "その他のもの",
+   "name": "角材・板 小 （１ｍ以下に切断し、ひもで束ねる）",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S049",
+   "category": "その他のもの",
+   "name": "角材・板 大 （１ｍ以下に切断し、ひもで束ねる）",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S050",
+   "category": "家具・寝具",
+   "name": "学習机セット （取付け本棚・取付け照明・ワゴン引出しを含んで600円）",
+   "size": null,
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S051",
+   "category": "敷物・室内用品",
+   "name": "かさ立て",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S052",
+   "category": "家事日用品",
+   "name": "ガスコンロ （電池は外す）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S053",
+   "category": "その他のもの",
+   "name": "ガス湯沸かし器",
+   "size": null,
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S054",
+   "category": "家事日用品",
+   "name": "カセットコンロ （カセットボンベは取外、中身を使い切り資源化物へ）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S055",
+   "category": "収納庫・室外用品",
+   "name": "門松 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S056",
+   "category": "収納庫・室外用品",
+   "name": "門松 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S057",
+   "category": "その他のもの",
+   "name": "金網 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S058",
+   "category": "その他のもの",
+   "name": "金網 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S059",
+   "category": "家具・寝具",
+   "name": "カラーボックス 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S060",
+   "category": "家具・寝具",
+   "name": "カラーボックス 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S061",
+   "category": "楽器・オーディオ製品",
+   "name": "キーボード （楽器）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S062",
+   "category": "楽器・オーディオ製品",
+   "name": "ギター （専用ケースに入れても一点）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S063",
+   "category": "スポーツ・レジャー・遊具",
+   "name": "キックボード",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S064",
+   "category": "その他のもの",
+   "name": "脚立",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S065",
+   "category": "趣味・園芸・工具用品",
+   "name": "キャットタワー 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S066",
+   "category": "趣味・園芸・工具用品",
+   "name": "キャットタワー 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S067",
+   "category": "家具・寝具",
+   "name": "キャビネット 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S068",
+   "category": "家具・寝具",
+   "name": "キャビネット 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S069",
+   "category": "スポーツ・レジャー・遊具",
+   "name": "キャリーバック （中身は出す）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S070",
+   "category": "収納庫・室外用品",
+   "name": "くい （鉄製・テント用等）（指定ごみ袋に入ってもそ大ごみ）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S071",
+   "category": "家電製品",
+   "name": "空気清浄機 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S072",
+   "category": "家電製品",
+   "name": "空気清浄機 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S073",
+   "category": "スポーツ・レジャー・遊具",
+   "name": "クーラーボックス 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S074",
+   "category": "スポーツ・レジャー・遊具",
+   "name": "クーラーボックス 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S075",
+   "category": "その他のもの",
+   "name": "鎖・チェーン （金属製） 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S076",
+   "category": "その他のもの",
+   "name": "鎖・チェーン （金属製） 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S077",
+   "category": "家具・寝具",
+   "name": "くつ箱 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S078",
+   "category": "家具・寝具",
+   "name": "くつ箱 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S079",
+   "category": "自転車類",
+   "name": "車いす （電動車いす）",
+   "size": null,
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S080",
+   "category": "自転車類",
+   "name": "車いす 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S081",
+   "category": "自転車類",
+   "name": "車いす 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S082",
+   "category": "家具・寝具",
+   "name": "クローゼット 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S083",
+   "category": "家具・寝具",
+   "name": "クローゼット 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S084",
+   "category": "スポーツ・レジャー・遊具",
+   "name": "剣道の防具 （面、胴、小手をしっかりまとめて一式１点）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S085",
+   "category": "家電製品",
+   "name": "高圧洗浄機 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S086",
+   "category": "家電製品",
+   "name": "高圧洗浄機 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S087",
+   "category": "趣味・園芸・工具用品",
+   "name": "工具類 （複数の工具を、工具箱に入れ、又はひもで束ねて1点）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S088",
+   "category": "敷物・室内用品",
+   "name": "ござ・むしろ",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S089",
+   "category": "家電製品",
+   "name": "こたつ （天板含む） 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S090",
+   "category": "家電製品",
+   "name": "こたつ （天板含む） 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S091",
+   "category": "楽器・オーディオ製品",
+   "name": "琴・大正琴 （専用ケースに入れても一点）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S092",
+   "category": "ＯＡ機器",
+   "name": "コピー機 （２名で運べる重量、家庭用として使用していた場合に限る）",
+   "size": null,
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S093",
+   "category": "敷物・室内用品",
+   "name": "ごみ箱 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S094",
+   "category": "スポーツ・レジャー・遊具",
+   "name": "ゴルフセット小 （ゴルフバックの中にゴルフクラブを入れた状態）",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S095",
+   "category": "スポーツ・レジャー・遊具",
+   "name": "ゴルフセット大 （ゴルフバックの中にゴルフクラブを入れた状態）",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S096",
+   "category": "スポーツ・レジャー・遊具",
+   "name": "ゴルフバッグ",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S097",
+   "category": "スポーツ・レジャー・遊具",
+   "name": "サーフボード",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S098",
+   "category": "家具・寝具",
+   "name": "座椅子 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S099",
+   "category": "家具・寝具",
+   "name": "座椅子 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S100",
+   "category": "家具・寝具",
+   "name": "サイドボード 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S101",
+   "category": "家具・寝具",
+   "name": "サイドボード 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S102",
+   "category": "家電製品",
+   "name": "サウナ （家庭用）",
+   "size": null,
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S103",
+   "category": "スポーツ・レジャー・遊具",
+   "name": "サマーベッド",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S104",
+   "category": "健康器具",
+   "name": "サンドバッグ （砂入り）",
+   "size": null,
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S105",
+   "category": "自転車類",
+   "name": "三輪車",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S106",
+   "category": "収納庫・室外用品",
+   "name": "シーサー （獅子）（左右で一対をまとめて1点）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S107",
+   "category": "家具・寝具",
+   "name": "磁気マット",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S108",
+   "category": "自転車類",
+   "name": "自転車 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S109",
+   "category": "自転車類",
+   "name": "自転車 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S110",
+   "category": "自転車類",
+   "name": "電動自転車 （バッテリーは外しリサイクル協力店へ）",
+   "size": null,
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S111",
+   "category": "自転車類",
+   "name": "自動車のウイング",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S112",
+   "category": "自転車類",
+   "name": "自動車のバンパー",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S113",
+   "category": "自転車類",
+   "name": "自動車のホイール 小 （指定ごみ袋に入ってもそ大ごみ）",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S114",
+   "category": "自転車類",
+   "name": "自動車のホイール 大 （指定ごみ袋に入ってもそ大ごみ）",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S115",
+   "category": "自転車類",
+   "name": "自動車のエアロパーツ",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S116",
+   "category": "自転車類",
+   "name": "ジャッキ （車に装備しているもの、指定ごみ袋に入ってもそ大ごみ）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S117",
+   "category": "敷物・室内用品",
+   "name": "じゅうたん 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S118",
+   "category": "敷物・室内用品",
+   "name": "じゅうたん 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S119",
+   "category": "家具・寝具",
+   "name": "収納ケース （引き出しのあるもの）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S120",
+   "category": "家具・寝具",
+   "name": "収納タンス 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S121",
+   "category": "家具・寝具",
+   "name": "収納タンス 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S122",
+   "category": "収納庫・室外用品",
+   "name": "焼却炉 （家庭用） 小（ステンレス製で枯葉等をもやす筒状のもの）",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S123",
+   "category": "収納庫・室外用品",
+   "name": "焼却炉 （家庭用） 大（ステンレス製で枯葉等をもやす筒状のもの）",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S124",
+   "category": "敷物・室内用品",
+   "name": "障子 （１枚）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S125",
+   "category": "家電製品",
+   "name": "照明器具 （電球・蛍光灯は外す）小 ※ＰＣＢ使用品は不可",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S126",
+   "category": "家電製品",
+   "name": "照明器具 （電球・蛍光灯は外す）大 ※ＰＣＢ使用品は不可",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S127",
+   "category": "家電製品",
+   "name": "除湿機 小 （指定ごみ袋に入ってもそ大ごみ）",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S128",
+   "category": "家電製品",
+   "name": "除湿機 大 （指定ごみ袋に入ってもそ大ごみ）",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S129",
+   "category": "家電製品",
+   "name": "食器洗浄機・食器乾燥機 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S130",
+   "category": "家電製品",
+   "name": "食器洗浄機・食器乾燥機 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S131",
+   "category": "家具・寝具",
+   "name": "食器棚 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S132",
+   "category": "家具・寝具",
+   "name": "食器棚 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S133",
+   "category": "家事日用品",
+   "name": "シンメー鍋 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S134",
+   "category": "家事日用品",
+   "name": "シンメー鍋 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S135",
+   "category": "敷物・室内用品",
+   "name": "水槽 小 （割れたものは有害・危険ごみ）",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S136",
+   "category": "敷物・室内用品",
+   "name": "水槽 大 （割れたものは有害・危険ごみ）",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S137",
+   "category": "趣味・園芸・工具用品",
+   "name": "水槽 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S138",
+   "category": "趣味・園芸・工具用品",
+   "name": "水槽 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S139",
+   "category": "その他のもの",
+   "name": "水道栓 （指定ごみ袋に入ってもそ大ごみ）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S140",
+   "category": "スポーツ・レジャー・遊具",
+   "name": "スーツケース （布製・プラスチック製）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S141",
+   "category": "趣味・園芸・工具用品",
+   "name": "鋤 （すき）（1ｍを超えるもの）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S142",
+   "category": "スポーツ・レジャー・遊具",
+   "name": "スキー用品",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S143",
+   "category": "スポーツ・レジャー・遊具",
+   "name": "スケートボード",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S144",
+   "category": "趣味・園芸・工具用品",
+   "name": "スコップ （１ｍを超えるもの）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S145",
+   "category": "敷物・室内用品",
+   "name": "すだれ （３つまで重ねて300円）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S146",
+   "category": "楽器・オーディオ製品",
+   "name": "ステレオ 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S147",
+   "category": "楽器・オーディオ製品",
+   "name": "ステレオ 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S148",
+   "category": "敷物・室内用品",
+   "name": "すのこ （４枚まで束ねて300円）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S149",
+   "category": "趣味・園芸・工具用品",
+   "name": "スパナ （大型の工具、長さが30cmを超える場合）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S150",
+   "category": "敷物・室内用品",
+   "name": "石油ストーブ （燃料は残さない、指定ごみ袋に入ってもそ大ごみ）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S151",
+   "category": "家電製品",
+   "name": "扇風機 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S152",
+   "category": "家電製品",
+   "name": "扇風機 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S153",
+   "category": "家具・寝具",
+   "name": "洗面台・洗面化粧台",
+   "size": null,
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S154",
+   "category": "家電製品",
+   "name": "掃除機 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S155",
+   "category": "収納庫・室外用品",
+   "name": "ソーラー温水器",
+   "size": null,
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S156",
+   "category": "収納庫・室外用品",
+   "name": "ソーラーパネル 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S157",
+   "category": "収納庫・室外用品",
+   "name": "ソーラーパネル 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S158",
+   "category": "家事日用品",
+   "name": "その他の家事日用品 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S159",
+   "category": "家事日用品",
+   "name": "その他の家事日用品 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S160",
+   "category": "健康器具",
+   "name": "その他の健康器具 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S161",
+   "category": "健康器具",
+   "name": "その他の健康器具 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S162",
+   "category": "楽器・オーディオ製品",
+   "name": "その他の楽器・オーディオ製品 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S163",
+   "category": "楽器・オーディオ製品",
+   "name": "その他の楽器・オーディオ製品 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S164",
+   "category": "スポーツ・レジャー・遊具",
+   "name": "その他のスポーツ・レジャー・遊具 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S165",
+   "category": "スポーツ・レジャー・遊具",
+   "name": "その他のスポーツ・レジャー・遊具 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S166",
+   "category": "乳幼児製品",
+   "name": "その他の乳幼児用製品 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S167",
+   "category": "乳幼児製品",
+   "name": "その他の乳幼児用製品 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S168",
+   "category": "家具・寝具",
+   "name": "ソファー （スプリングあり・１人掛け）",
+   "size": null,
+   "fee_yen": 1270,
+   "ticket": {
+    "kind": "spring_1270",
+    "label": "適正処理困難物処理券（1,270円）",
+    "unit_price_yen": 1270,
+    "count": 1
+   }
+  },
+  {
+   "id": "S169",
+   "category": "家具・寝具",
+   "name": "ソファー （スプリングあり・２人掛け以上）",
+   "size": null,
+   "fee_yen": 1940,
+   "ticket": {
+    "kind": "spring_1940",
+    "label": "適正処理困難物処理券（1,940円）",
+    "unit_price_yen": 1940,
+    "count": 1
+   }
+  },
+  {
+   "id": "S170",
+   "category": "家具・寝具",
+   "name": "ソファー （スプリングなし） 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S171",
+   "category": "家具・寝具",
+   "name": "ソファー （スプリングなし） 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S172",
+   "category": "趣味・園芸・工具用品",
+   "name": "台車 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S173",
+   "category": "趣味・園芸・工具用品",
+   "name": "台車 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S174",
+   "category": "自転車類",
+   "name": "タイヤのホイールリム （自動車・バイク）（タイヤ（ゴムの部分）は外す）",
+   "size": null,
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S175",
+   "category": "スポーツ・レジャー・遊具",
+   "name": "竹馬 （金属製、1ｍを超えるもの）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S176",
+   "category": "スポーツ・レジャー・遊具",
+   "name": "竹馬 （木製・竹製、1ｍを超えるもの）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S177",
+   "category": "敷物・室内用品",
+   "name": "畳 （一畳）",
+   "size": null,
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S178",
+   "category": "敷物・室内用品",
+   "name": "畳 （半畳）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S179",
+   "category": "敷物・室内用品",
+   "name": "畳 （ユニット式の薄型軽量のシステム畳）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S180",
+   "category": "家具・寝具",
+   "name": "棚 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S181",
+   "category": "家具・寝具",
+   "name": "棚 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S182",
+   "category": "敷物・室内用品",
+   "name": "たらい （金属製）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S183",
+   "category": "敷物・室内用品",
+   "name": "たらい （プラスチック製）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S184",
+   "category": "家具・寝具",
+   "name": "タンス 小 （ばらしても上下一式で1点）",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S185",
+   "category": "家具・寝具",
+   "name": "タンス 大 （ばらしても上下一式で1点）",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S186",
+   "category": "健康器具",
+   "name": "ダンベル （金属製）小 （そ大ごみ、２個をひもで束ねて１点扱い）",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S187",
+   "category": "健康器具",
+   "name": "ダンベル （金属製）大 （そ大ごみ、２個をひもで束ねて２点扱い）",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S188",
+   "category": "乳幼児製品",
+   "name": "チャイルドシート 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S189",
+   "category": "乳幼児製品",
+   "name": "チャイルドシート 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S190",
+   "category": "敷物・室内用品",
+   "name": "ついたて （パーテーション）小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S191",
+   "category": "敷物・室内用品",
+   "name": "ついたて （パーテーション）大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S192",
+   "category": "家具・寝具",
+   "name": "机 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S193",
+   "category": "家具・寝具",
+   "name": "机 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S194",
+   "category": "敷物・室内用品",
+   "name": "つっぱり棒 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S195",
+   "category": "趣味・園芸・工具用品",
+   "name": "つるはし （１ｍを超えるもの）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S196",
+   "category": "家具・寝具",
+   "name": "テーブル 小 （椅子は別）",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S197",
+   "category": "家具・寝具",
+   "name": "テーブル 大 （椅子は別）",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S198",
+   "category": "その他のもの",
+   "name": "鉄筋 小 （指定ごみ袋に入ってもそ大ごみ）",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S199",
+   "category": "その他のもの",
+   "name": "鉄筋 大 （指定ごみ袋に入ってもそ大ごみ）",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S200",
+   "category": "その他のもの",
+   "name": "鉄パイプ 小 （指定ごみ袋に入ってもそ大ごみ）",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S201",
+   "category": "その他のもの",
+   "name": "鉄パイプ 大 （指定ごみ袋に入ってもそ大ごみ）",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S202",
+   "category": "その他のもの",
+   "name": "鉄板 小 （指定ごみ袋に入ってもそ大ごみ）",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S203",
+   "category": "その他のもの",
+   "name": "鉄板 大 （指定ごみ袋に入ってもそ大ごみ）",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S204",
+   "category": "家具・寝具",
+   "name": "テレビ台 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S205",
+   "category": "家具・寝具",
+   "name": "テレビ台 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S206",
+   "category": "家電製品",
+   "name": "電気カーペット 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S207",
+   "category": "家電製品",
+   "name": "電気カーペット 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S208",
+   "category": "楽器・オーディオ製品",
+   "name": "電子ピアノ",
+   "size": null,
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S209",
+   "category": "家電製品",
+   "name": "電子レンジ 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S210",
+   "category": "家電製品",
+   "name": "電子レンジ 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S211",
+   "category": "スポーツ・レジャー・遊具",
+   "name": "テント本体一式 小 （付属 椅子・テーブル等除く）",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S212",
+   "category": "スポーツ・レジャー・遊具",
+   "name": "テント本体一式 大 （付属 椅子・テーブル等除く）",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S213",
+   "category": "趣味・園芸・工具用品",
+   "name": "電動いとのこ （電池は外す）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S214",
+   "category": "趣味・園芸・工具用品",
+   "name": "電動かんな （電池は外す）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S215",
+   "category": "趣味・園芸・工具用品",
+   "name": "電動ドリル （電池は外す）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S216",
+   "category": "趣味・園芸・工具用品",
+   "name": "電動のこぎり （電池は外す）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S217",
+   "category": "その他のもの",
+   "name": "ドア 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S218",
+   "category": "その他のもの",
+   "name": "ドア 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S219",
+   "category": "その他のもの",
+   "name": "トタン （金属製）（束ねずに１つ300円）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S220",
+   "category": "その他のもの",
+   "name": "トタン （ビニール製）（４枚まで束ねて300円）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S221",
+   "category": "その他のもの",
+   "name": "ドラム缶",
+   "size": null,
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S222",
+   "category": "スポーツ・レジャー・遊具",
+   "name": "トランポリン",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S223",
+   "category": "趣味・園芸・工具用品",
+   "name": "鳥かご",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S224",
+   "category": "その他のもの",
+   "name": "トレース （製図用） 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S225",
+   "category": "その他のもの",
+   "name": "トレース （製図用） 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S226",
+   "category": "健康器具",
+   "name": "トレーニング機器 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S227",
+   "category": "健康器具",
+   "name": "トレーニング機器 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S228",
+   "category": "家具・寝具",
+   "name": "流し台 （ステンレス）",
+   "size": null,
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S229",
+   "category": "家電製品",
+   "name": "生ごみ処理機 （電気式） 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S230",
+   "category": "家電製品",
+   "name": "生ごみ処理機 （電気式） 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S231",
+   "category": "その他のもの",
+   "name": "生ごみ処理機 （プラスチック製） 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S232",
+   "category": "その他のもの",
+   "name": "生ごみ処理機 （プラスチック製） 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S233",
+   "category": "家具・寝具",
+   "name": "二段ベッド （上下）（バラしても上下で１点）",
+   "size": null,
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S234",
+   "category": "スポーツ・レジャー・遊具",
+   "name": "バーベキューセット 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S235",
+   "category": "スポーツ・レジャー・遊具",
+   "name": "バーベキューセット 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S236",
+   "category": "家具・寝具",
+   "name": "パイプベッド",
+   "size": null,
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S237",
+   "category": "その他のもの",
+   "name": "はしご 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S238",
+   "category": "その他のもの",
+   "name": "はしご 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S239",
+   "category": "敷物・室内用品",
+   "name": "バスタブ・浴槽 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S240",
+   "category": "敷物・室内用品",
+   "name": "バスタブ・浴槽 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S241",
+   "category": "その他のもの",
+   "name": "発電機 （家庭用）（燃料を抜く）",
+   "size": null,
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S242",
+   "category": "家具・寝具",
+   "name": "ハンガーラック",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S243",
+   "category": "趣味・園芸・工具用品",
+   "name": "ハンマー （釘を打つ面の直径が３cm未満の場合はもやさないごみ）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S244",
+   "category": "家電製品",
+   "name": "ヒーター （電気）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S245",
+   "category": "スポーツ・レジャー・遊具",
+   "name": "ビーチチェア・シャワーチェア",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S246",
+   "category": "スポーツ・レジャー・遊具",
+   "name": "ビーチパラソル",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S247",
+   "category": "趣味・園芸・工具用品",
+   "name": "ひな祭りセット 小 （一式（ひな壇・人形・飾り）まとめて一枚）",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S248",
+   "category": "趣味・園芸・工具用品",
+   "name": "ひな祭りセット 大 （一式（ひな壇・人形・飾り）まとめて一枚）",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S249",
+   "category": "敷物・室内用品",
+   "name": "火鉢",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S250",
+   "category": "ＯＡ機器",
+   "name": "ファックス 大 （２名で運べる重量、家庭用として使用していた場合に限る）",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S251",
+   "category": "ＯＡ機器",
+   "name": "ファックス 小 （家庭用として使用していた場合に限る）",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S252",
+   "category": "家具・寝具",
+   "name": "ふすま （１枚で１点）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S253",
+   "category": "家具・寝具",
+   "name": "仏壇 小 （ばらしても上下一式で１点）",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S254",
+   "category": "家具・寝具",
+   "name": "仏壇 大 （ばらしても上下一式で１点）",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S255",
+   "category": "家具・寝具",
+   "name": "布団 （掛け・敷き布団それぞれ１点扱い）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S256",
+   "category": "家具・寝具",
+   "name": "布団一式 （掛け布団・敷き布団の一式で１点）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S257",
+   "category": "家具・寝具",
+   "name": "ブラインドカーテン 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S258",
+   "category": "家具・寝具",
+   "name": "ブラインドカーテン 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S259",
+   "category": "健康器具",
+   "name": "ぶら下がり健康器",
+   "size": null,
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S260",
+   "category": "趣味・園芸・工具用品",
+   "name": "プランター 小 （中身を出す、３個まで重ねて300円）",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S261",
+   "category": "趣味・園芸・工具用品",
+   "name": "プランター 大 （中身を出す、10㎏を超えるもの）",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S262",
+   "category": "家電製品",
+   "name": "プリンター 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S263",
+   "category": "家電製品",
+   "name": "プリンター 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S264",
+   "category": "敷物・室内用品",
+   "name": "風呂桶 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S265",
+   "category": "敷物・室内用品",
+   "name": "風呂桶 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S266",
+   "category": "家具・寝具",
+   "name": "ベッド （スプリング入りマット・一体型（マットレスと枠が切り離し不可））",
+   "size": null,
+   "fee_yen": 2600,
+   "ticket": {
+    "kind": "spring_2600",
+    "label": "適正処理困難物処理券（2,600円）",
+    "unit_price_yen": 2600,
+    "count": 1
+   }
+  },
+  {
+   "id": "S267",
+   "category": "趣味・園芸・工具用品",
+   "name": "ペットの小屋 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S268",
+   "category": "趣味・園芸・工具用品",
+   "name": "ペットの小屋 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S269",
+   "category": "家具・寝具",
+   "name": "ベッド枠 小 （フレームのみ・枠のみ）",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S270",
+   "category": "家具・寝具",
+   "name": "ベッド枠 大 （フレームのみ・枠のみ）",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S271",
+   "category": "その他のもの",
+   "name": "ベニヤ板 小 （１ｍ以下に切断し、ひもで束ねる）",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S272",
+   "category": "その他のもの",
+   "name": "ベニヤ板 大 （１ｍ以下に切断し、ひもで束ねる）",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S273",
+   "category": "乳幼児製品",
+   "name": "ベビーカー",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S274",
+   "category": "乳幼児製品",
+   "name": "ベビーバス",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S275",
+   "category": "乳幼児製品",
+   "name": "ベビーベッド （スプリングなし）大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S276",
+   "category": "乳幼児製品",
+   "name": "ベビーベッド （スプリング入り）",
+   "size": null,
+   "fee_yen": 2600,
+   "ticket": {
+    "kind": "spring_2600",
+    "label": "適正処理困難物処理券（2,600円）",
+    "unit_price_yen": 2600,
+    "count": 1
+   }
+  },
+  {
+   "id": "S277",
+   "category": "乳幼児製品",
+   "name": "ベビーベッド （スプリングなし）小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S278",
+   "category": "敷物・室内用品",
+   "name": "便器 （陶器）（指定ごみ袋に入ってもそ大ごみ）",
+   "size": null,
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S279",
+   "category": "敷物・室内用品",
+   "name": "便器 （プラスチック）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S280",
+   "category": "スポーツ・レジャー・遊具",
+   "name": "ボウリングのボール （指定ごみ袋に入ってもそ大ごみ）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S281",
+   "category": "敷物・室内用品",
+   "name": "ポータブルトイレ",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S282",
+   "category": "その他のもの",
+   "name": "歩行器",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S283",
+   "category": "その他のもの",
+   "name": "ホワイトボード 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S284",
+   "category": "その他のもの",
+   "name": "ホワイトボード 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S285",
+   "category": "家具・寝具",
+   "name": "本棚 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S286",
+   "category": "家具・寝具",
+   "name": "本棚 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S287",
+   "category": "スポーツ・レジャー・遊具",
+   "name": "マージャン台 （電動）（家庭用として使用していた場合に限る）",
+   "size": null,
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S288",
+   "category": "健康器具",
+   "name": "マッサージ機 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S289",
+   "category": "健康器具",
+   "name": "マッサージ機 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S290",
+   "category": "家具・寝具",
+   "name": "マットレス （スプリングなし）小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S291",
+   "category": "家具・寝具",
+   "name": "マットレス （スプリング入り）",
+   "size": null,
+   "fee_yen": 2600,
+   "ticket": {
+    "kind": "spring_2600",
+    "label": "適正処理困難物処理券（2,600円）",
+    "unit_price_yen": 2600,
+    "count": 1
+   }
+  },
+  {
+   "id": "S292",
+   "category": "家具・寝具",
+   "name": "マットレス （スプリングなし）大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S293",
+   "category": "趣味・園芸・工具用品",
+   "name": "万力 （指定ごみ袋に入ってもそ大ごみ）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S294",
+   "category": "趣味・園芸・工具用品",
+   "name": "ミシン 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S295",
+   "category": "趣味・園芸・工具用品",
+   "name": "ミシン 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S296",
+   "category": "その他のもの",
+   "name": "木材 小 （１ｍ以下に切断し、ひもで束ねる）",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S297",
+   "category": "その他のもの",
+   "name": "木材 大 （１ｍ以下に切断し、ひもで束ねる",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S298",
+   "category": "収納庫・室外用品",
+   "name": "物干し竿 （１ｍを超えるもの）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S299",
+   "category": "収納庫・室外用品",
+   "name": "物干し竿と台のセット 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S300",
+   "category": "収納庫・室外用品",
+   "name": "物干し竿と台のセット 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S301",
+   "category": "収納庫・室外用品",
+   "name": "物干しスタンド （パラソル・室内用）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S302",
+   "category": "収納庫・室外用品",
+   "name": "物干し台 小 （土台がブロック・石でも収集する）",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S303",
+   "category": "収納庫・室外用品",
+   "name": "物干し台 大 （土台がブロック・石でも収集する）",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S304",
+   "category": "収納庫・室外用品",
+   "name": "門扉 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S305",
+   "category": "収納庫・室外用品",
+   "name": "門扉 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S306",
+   "category": "自転車類",
+   "name": "Ｕ字ロック （指定ごみ袋に入ってもそ大ごみ）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S307",
+   "category": "敷物・室内用品",
+   "name": "よしず （３つまで重ねて300円）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S308",
+   "category": "趣味・園芸・工具用品",
+   "name": "ラティス 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S309",
+   "category": "趣味・園芸・工具用品",
+   "name": "ラティス 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S310",
+   "category": "自転車類",
+   "name": "リヤカー",
+   "size": null,
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S311",
+   "category": "健康器具",
+   "name": "ルームランナー",
+   "size": null,
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S312",
+   "category": "家電製品",
+   "name": "冷風機 小 （指定ごみ袋に入ってもそ大ごみ、フロンガス回収済のみ）",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S313",
+   "category": "家電製品",
+   "name": "冷風機 大 （指定ごみ袋に入ってもそ大ごみ、フロンガス回収済のみ）",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S314",
+   "category": "家具・寝具",
+   "name": "レンジ台 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S315",
+   "category": "家具・寝具",
+   "name": "レンジ台 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S316",
+   "category": "趣味・園芸・工具用品",
+   "name": "レンチ （長さが30cm以下の場合はもやさないごみ）",
+   "size": null,
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S317",
+   "category": "家具・寝具",
+   "name": "ロールカーテン 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S318",
+   "category": "家具・寝具",
+   "name": "ロールカーテン 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S319",
+   "category": "収納庫・室外用品",
+   "name": "ロッカー",
+   "size": null,
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  },
+  {
+   "id": "S320",
+   "category": "家事日用品",
+   "name": "ワゴン 小",
+   "size": "小",
+   "fee_yen": 300,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 1
+   }
+  },
+  {
+   "id": "S321",
+   "category": "家事日用品",
+   "name": "ワゴン 大",
+   "size": "大",
+   "fee_yen": 600,
+   "ticket": {
+    "kind": "sodai",
+    "label": "そ大ごみ処理券",
+    "unit_price_yen": 300,
+    "count": 2
+   }
+  }
+ ]
+}

@@ -1,85 +1,73 @@
-# 6. チーム向け説明資料：ゴミ分別AI（Gemini）の使い方
+# 6. チーム向け説明資料：そ大ごみAI（Gemini）の使い方
 
 対象：フロントエンド・バックエンド担当のメンバー
 作成：プロンプト・AI評価担当
 
 ## 3行でまとめると
 
-1. 画像1枚と那覇市のルール本文をGeminiに渡すと、**決まった形のJSON**が返ってきます（[02_json_spec.md](02_json_spec.md)）。
-2. Geminiは**自分の知識で分別区分を決めません**。渡されたルールにない物には「自治体の公式情報を確認してください」と答えます。
-3. 認識結果には**確実性**と**確認したいこと**が付いてくるので、画面に出してください。
+1. 写真1枚と那覇市の品目リストをGeminiに渡すと、**写っている物がどの品目IDに当たるか**がJSONで返ってきます（[02_json_spec.md](02_json_spec.md)）。
+2. **料金・処理券・販売店はGeminiは答えません。** 品目IDを使って、アプリが [data/](../data/README.md) の公式データから表示してください。
+3. 小か大か、スプリング入りかが写真で分からないときは、**候補と確認の質問**が返ってきます。画面に出して、利用者に選んでもらってください。
 
 ## ⚠️ 現在の状態
 
-- プロンプトとJSONの形式は完成しています（v1.0）
-- **Geminiでの実機テストはまだしていません**（APIキーとテスト画像がないため）。精度はまだ分かりません
-- 那覇市のルールは公式ホームページから転記しました。**別の人による確認はまだです**
+- 2026-10-17 に方針を変更しました（分別全般 → **そ大ごみだけ**）。プロンプトとJSON形式は v2.0 です
+- **v2.0 はGeminiでの実機テストをまだしていません**（テスト画像待ち）
+- 処理券の販売店データは公式PDFを目で見て転記しました。**別の人による確認はまだです**
 
 ## バックエンド担当へ：Geminiの呼び出し方
 
-使うファイルはすべて `prompts/` にあります。**中身をコードにコピーせず、ファイルから読み込んでください**（プロンプトを更新したときに反映されるようにするため）。
+使うファイルはすべて `prompts/` にあります。**中身をコードにコピーせず、ファイルから読み込んでください。**
 
 | 渡すもの | ファイル | SDKの設定 |
 |---|---|---|
 | 指示文 | `prompts/system_instruction.txt` | `config.systemInstruction` |
 | 出力形式 | `prompts/response_schema.json` | `config.responseJsonSchema`、`config.responseMimeType = "application/json"` |
 | 画像 | ユーザーの写真 | `contents` の1つ目のパート（`inlineData`） |
-| ルール・補足 | `prompts/user_prompt_template.txt` の差し込み項目を置き換えたもの | `contents` の2つ目のパート（`text`） |
-| 那覇市ルール | `eval/rules/naha-city-rules.md` の本文 | `{{MUNICIPALITY_RULES}}` に入れる |
+| 品目リスト・補足 | `prompts/user_prompt_template.txt` の差し込み項目を置き換えたもの | `contents` の2つ目のパート（`text`） |
+| 那覇市の品目リスト | `prompts/rules_naha_sodai.txt` | `{{SODAI_RULES}}` に入れる |
 
-呼び出し方の具体例は、検証スクリプト [eval/src/run-eval.ts](../eval/src/run-eval.ts) の `callGemini` と `renderUserPrompt` を参照してください（あくまで検証用のコードです。アプリ本体の実装はお任せします）。
+呼び出し方の具体例は、検証スクリプト [eval/src/run-eval.ts](../eval/src/run-eval.ts) の `callGemini` と `renderUserPrompt` を参照してください（検証用のコードです）。
 
 **守ってほしいこと**
 
-- ルールがないときは、`{{MUNICIPALITY_RULES}}` に必ず `提供なし` と入れる（空文字にしない）
 - 返ってきたJSONは `response_schema.json` で検証する。失敗したら1回だけ再試行する
-- `rule_status` が `applied` の `category` は、那覇市ルールの区分一覧にあるか確認する（全角・半角を正規化してから比べる）
+- 品目IDは `data/naha-sodai-items.json` で引けるか確認する。引けないIDの料金は表示しない
+- 料金は Gemini の文章からではなく、必ず `data/` から表示する
+- 利用者が確認の質問に答えたら、その内容を `{{USER_NOTE}}` に入れて呼び直す
 
 ## フロントエンド担当へ：表示のお願い
 
 | JSONの状態 | 表示のお願い |
 |---|---|
-| `image_assessment.contains_waste = false` | 「ゴミが見つかりませんでした」＋撮り直しの案内 |
-| `image_assessment.overall_quality = "poor"` | 結果と一緒に `retake_advice` を目立つように表示する |
-| `confidence = "low"` / `"medium"` | 「推定」「確認してください」などのラベルを付ける。`high` と同じ見た目にしない |
-| `sorting[].rule_status = "applied"` | `category`（区分）と `disposal_method`（出し方）を表示する |
-| `sorting[].rule_status = "needs_confirmation"` | `candidates` を「〇〇の場合は△△」の形で並べ、`questions_for_user` を表示する |
-| `not_found` / `no_rules` | `disposal_method`（「自治体の公式情報を確認してください」）＋那覇市公式サイトへのリンク |
-| `cautions[].type = "general_safety"` | 電池の発火など安全に関わる内容なので、⚠️アイコンなどで目立たせる |
+| `contains_waste = false` | 「捨てる物が見つかりませんでした」＋撮り直しの案内 |
+| `overall_quality = "poor"` または `issues` に `no_scale_reference` | `retake_advice` を目立つように表示する |
+| `sodai.status = "listed"` | 品目名、料金、処理券の種類と枚数、その券を売っている店 |
+| `sodai.status = "needs_confirmation"` | 候補を「〇〇の場合 → △△円」の形で並べ、`questions_for_user` を表示。利用者が選べるようにする |
+| `sodai.status = "not_collected"` | 「市では収集していません」＋ `data/naha-sodai-info.json` の案内 |
+| `sodai.status = "not_sodai"` / `"not_listed"` | 「そ大ごみではない可能性があります」／「クリーン推進課（098-889-3567）に確認してください」 |
+| `confidence = "low"` / `"medium"` | 「推定」などのラベルを付け、`high` と同じ見た目にしない |
 | `items` が複数 | `location`（「画像左側」など）を見出しにして、1つずつ表示する |
-| ペットボトルなど `sorting` が複数 | 「本体」「キャップ」など `target` ごとに出し方を表示する |
 
-那覇市の公式ページ：<https://www.city.naha.okinawa.jp/kurasitetuduki/gomi-recycling/1001934/1001935.html>
+`listed` と `needs_confirmation` では、申込方法（Web・電話）と出し方（受付番号を処理券に書く、収集日の朝8時30分までに出す）もあわせて表示してください。データの場所と使い方は [data/README.md](../data/README.md) にあります。
 
-## 那覇市ルールで気をつける点
+## 那覇市のそ大ごみで気をつける点
 
-一般的な知識と違うところがあります。AIの回答が「おかしい」と感じても、まず那覇市のルールを確認してください。
-
-- プラスチック容器・トレイ・ペットボトルのキャップ → **もやすごみ**
-- PETマークのないプラスチックボトル → **もやすごみ**
-- 化粧品のびん → **もやさないごみ**
-- スプレー缶・カセットボンベ → 中身を使い切って **資源化物（缶）**
-- リチウムイオン電池・モバイルバッテリー → **危険ごみ**（令和8年3月から）
+- 料金は **処理券1枚300円**。「小」（1㎥未満かつ10kg以下）は1枚、「大」は2枚
+- スプリング入りのマットレス・ソファーは**別の券**（1,270円／1,940円／2,600円）。**扱っていない店がある**
+- 電子レンジ・除湿機・石油ストーブなどは、指定ごみ袋に入っても**そ大ごみ**
+- テレビ・エアコン・冷蔵庫・洗濯機・パソコンは**市では収集しない**
+- 1回に申し込めるのは**6点まで**
 
 ## 検証を手伝ってくれる人へ
 
-テスト用の写真を撮ってもらえると助かります。
+テスト用の写真を撮ってもらえると助かります。会場で撮りやすい物（椅子、机、ホワイトボード、ノートパソコン、段ボール箱など）から集めています。
 
 1. [03_test_cases.md](03_test_cases.md) の「画像」の欄にある撮り方を見て撮影する
-2. `eval/images/TC01.jpg` のように、**ケースIDをファイル名にして**置く
-3. 顔・住所・名前など個人情報が写らないようにする（写真はGemini APIに送信されます）
-
-実行方法（プロンプト担当が行います）：
-
-```bash
-cd eval
-npm install
-npm run check      # APIを使わない準備確認
-export GEMINI_API_KEY=...
-npm run eval       # 実行 → results/ にレポートができる
-```
+2. `eval/images/TC01.jpg` のように、**ケースIDをファイル名にして**置く（拡張子は元のまま）
+3. 顔・名前・画面の中身など個人情報が写らないようにする（写真はGemini APIに送信されます）
 
 ## 変更を依頼したいとき
 
-- プロンプトやJSONの形式を変えたいときは、プロンプト担当に連絡してください（直接編集しないでください）
+- プロンプト・JSON形式・`data/` を変えたいときは、プロンプト担当に連絡してください（直接編集しないでください）
 - JSONの形式を変えるときは `schema_version` を上げ、[02_json_spec.md](02_json_spec.md) と [05_prompt_changelog.md](05_prompt_changelog.md) を更新します

@@ -14,7 +14,7 @@ import { checkExpected, checkInvariants, checkSchema, loadRules, type Check, typ
 
 const EVAL_DIR = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const PROMPT_DIR = resolve(EVAL_DIR, "../prompts");
-const PROMPT_VERSION = "v1.0";
+const PROMPT_VERSION = "v2.0";
 
 interface RuleSet { file: string; municipality: string; source: string }
 interface TestCase {
@@ -38,7 +38,7 @@ const model = process.env.GEMINI_MODEL ?? "gemini-3.8-flash";
 const temperature = process.env.GEMINI_TEMPERATURE ? Number(process.env.GEMINI_TEMPERATURE) : undefined;
 const apiKey = process.env.GEMINI_API_KEY ?? process.env.GOOGLE_API_KEY;
 
-const suite = JSON.parse(readFileSync(join(EVAL_DIR, "test-cases.json"), "utf8")) as { rule_sets: Record<string, RuleSet | null>; cases: TestCase[] };
+const suite = JSON.parse(readFileSync(join(EVAL_DIR, "test-cases.json"), "utf8")) as { rule_sets: Record<string, RuleSet>; cases: TestCase[] };
 const cases = suite.cases.filter((c) => !only || only.includes(c.id));
 const schema = JSON.parse(readFileSync(join(PROMPT_DIR, "response_schema.json"), "utf8"));
 const systemInstruction = readFileSync(join(PROMPT_DIR, promptKind === "baseline" ? "baseline_v0.txt" : "system_instruction.txt"), "utf8");
@@ -52,19 +52,19 @@ function findImage(stem: string): string | undefined {
   }
 }
 
-function rulesPath(key: string): string | null {
+function rulesPath(key: string): string {
   const rs = suite.rule_sets[key];
-  if (rs === undefined) throw new Error(`未定義のルールセット: ${key}`);
-  return rs ? join(EVAL_DIR, rs.file) : null;
+  if (!rs) throw new Error(`未定義のルールセット: ${key}`);
+  return join(EVAL_DIR, rs.file);
 }
 
 function renderUserPrompt(tc: TestCase): string {
   const rs = suite.rule_sets[tc.rules];
-  const rulesText = rs ? readFileSync(join(EVAL_DIR, rs.file), "utf8").trim() : "提供なし";
+  const rulesText = readFileSync(rulesPath(tc.rules), "utf8").trim();
   return userTemplate
-    .replace("{{MUNICIPALITY_NAME}}", rs?.municipality ?? "未指定")
-    .replace("{{RULES_SOURCE}}", rs?.source ?? "なし")
-    .replace("{{MUNICIPALITY_RULES}}", rulesText)
+    .replace("{{MUNICIPALITY_NAME}}", rs.municipality)
+    .replace("{{RULES_SOURCE}}", rs.source)
+    .replace("{{SODAI_RULES}}", rulesText)
     .replace("{{USER_NOTE}}", tc.user_note || "（なし）");
 }
 
@@ -74,7 +74,8 @@ console.log(`プロンプト: ${promptKind === "baseline" ? "baseline (v0)" : PR
 console.log(`テストケース: ${cases.length} 件（画像あり ${withImage.length} 件 / 画像なし ${cases.length - withImage.length} 件）`);
 for (const key of Object.keys(suite.rule_sets)) {
   const p = rulesPath(key);
-  if (p) { const r = loadRules(p); console.log(`ルール ${key}: ID ${r.ruleIds.size} 件・区分 ${r.categories.size} 種（${[...r.categories].join("、")}）`); }
+  const r = loadRules(p);
+  console.log(`品目リスト ${key}: 収集品目 ${r.items.size} 件・収集しない物 ${r.notCollected.size} 件`);
 }
 console.log(`APIキー: ${apiKey ? "設定済み" : "未設定（GEMINI_API_KEY）"}`);
 
@@ -159,8 +160,8 @@ for (const c of executed.flatMap((r) => r.checks ?? [])) {
   byItem.set(c.eval_item, s);
 }
 const EVAL_NAMES: Record<number, string> = {
-  0: "整合性", 1: "物体名の認識", 2: "材質の判断", 3: "写っていない物を答えない", 4: "不明な情報を断定しない",
-  5: "複数のゴミの認識", 6: "JSON形式", 7: "自治体ルールとの一致",
+  1: "物体名の認識", 2: "品目IDの選択", 3: "写っていない物を答えない", 4: "大きさ・スプリングを断定しない",
+  5: "複数の物の認識", 6: "JSON形式", 7: "品目リストへの忠実さ",
 };
 const lines = [
   `# 検証結果 ${stamp}`, "",

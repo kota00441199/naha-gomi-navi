@@ -10,7 +10,8 @@
     "ping": "tsx src/ping.ts",
     "eval": "tsx src/run-eval.ts",
     "typecheck": "tsc --noEmit",
-    "docs": "tsx src/gen-testcase-doc.ts"
+    "docs": "tsx src/gen-testcase-doc.ts",
+    "rules": "tsx src/gen-rules.ts"
   },
   "dependencies": {
     "@google/genai": "^2.30.0",

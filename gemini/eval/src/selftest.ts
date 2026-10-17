@@ -12,9 +12,10 @@ const suite = JSON.parse(readFileSync(join(EVAL_DIR, "test-cases.json"), "utf8")
 interface Scenario { sample: string; caseId: string; mustFail: string[] }
 const scenarios: Scenario[] = [
   { sample: "example_TC01_naha.json", caseId: "TC01", mustFail: [] },
-  { sample: "bad_TC05_knowledge_leak.json", caseId: "TC05", mustFail: ["inv.rule_grounding", "exp.item[プラスチック容器].category", "exp.item[プラスチック容器].category_forbidden"] },
-  { sample: "bad_TC15_no_rules_asserted.json", caseId: "TC15", mustFail: ["inv.rule_status", "inv.rule_grounding", "exp.item[ペットボトル].rule_status"] },
-  { sample: "bad_TC10_dark_overconfident.json", caseId: "TC10", mustFail: ["inv.poor_quality_no_high", "inv.unknown_material", "inv.fixed_message", "exp.retake_advice", "exp.confidence_max_all", "exp.no_hallucinated_items"] },
+  { sample: "bad_TC07_spring_asserted.json", caseId: "TC07", mustFail: ["inv.no_unfounded_variant", "exp.item[ソファー].status"] },
+  { sample: "bad_TC10_knowledge_leak.json", caseId: "TC10", mustFail: ["inv.rule_grounding", "inv.no_fee", "exp.item[テレビ].status", "exp.item[テレビ].ids"] },
+  { sample: "bad_TC15_dark_overconfident.json", caseId: "TC15", mustFail: ["inv.poor_quality_no_high", "inv.unknown_size", "exp.retake_advice", "exp.confidence_max_all", "exp.no_hallucinated_items"] },
+  { sample: "bad_TC18_wrong_list.json", caseId: "TC18", mustFail: ["inv.rule_grounding", "exp.item[椅子].ids", "exp.item[椅子].ids_forbidden"] },
 ];
 
 let failures = 0;
@@ -23,7 +24,7 @@ for (const s of scenarios) {
   const rs = suite.rule_sets[tc.rules];
   const raw = readFileSync(join(EVAL_DIR, "samples", s.sample), "utf8");
   const { checks, parsed } = checkSchema(raw);
-  if (parsed) checks.push(...checkInvariants(parsed, loadRules(rs ? join(EVAL_DIR, rs.file) : null)), ...checkExpected(parsed, tc.expected));
+  if (parsed) checks.push(...checkInvariants(parsed, loadRules(join(EVAL_DIR, rs.file))), ...checkExpected(parsed, tc.expected));
   const failed = new Set(checks.filter((c: Check) => !c.passed).map((c) => c.id));
   const missed = s.mustFail.filter((id) => !failed.has(id));
   const unexpected = [...failed].filter((id) => !s.mustFail.includes(id));

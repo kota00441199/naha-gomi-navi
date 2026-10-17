@@ -1,8 +1,8 @@
 添付の画像を解析し、指定のJSON形式で出力してください。
 
-<municipality_rules municipality="{{MUNICIPALITY_NAME}}" source="{{RULES_SOURCE}}">
-{{MUNICIPALITY_RULES}}
-</municipality_rules>
+<sodai_rules municipality="{{MUNICIPALITY_NAME}}" source="{{RULES_SOURCE}}">
+{{SODAI_RULES}}
+</sodai_rules>
 
 <user_note>
 {{USER_NOTE}}

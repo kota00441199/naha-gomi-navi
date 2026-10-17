@@ -26,7 +26,7 @@ const t0 = Date.now();
 try {
   const res = await ai.models.generateContent({
     model,
-    contents: [{ role: "user", parts: [{ text: "接続確認です。画像は添付していません。ゴミが写っていない場合として、指定のJSON形式で出力してください。\n\n<municipality_rules municipality=\"未指定\" source=\"なし\">\n提供なし\n</municipality_rules>\n\n<user_note>\n（なし）\n</user_note>" }] }],
+    contents: [{ role: "user", parts: [{ text: "接続確認です。画像は添付していません。捨てる物が写っていない場合として、指定のJSON形式で出力してください。\n\n<sodai_rules municipality=\"那覇市\" source=\"接続確認\">\n[S001] 家事日用品｜アイロン台\n</sodai_rules>\n\n<user_note>\n（なし）\n</user_note>" }] }],
     config: { systemInstruction, responseMimeType: "application/json", responseJsonSchema: schema },
   });
   console.log(`✅ APIキー：有効`);
