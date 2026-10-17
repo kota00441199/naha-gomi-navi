@@ -1,0 +1,165 @@
+{
+  "type": "object",
+  "description": "ゴミ画像の認識結果と分別情報",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "enum": ["1.0"],
+      "description": "出力形式のバージョン。常に \"1.0\""
+    },
+    "image_assessment": {
+      "type": "object",
+      "description": "画像全体の品質評価",
+      "properties": {
+        "overall_quality": {
+          "type": "string",
+          "enum": ["good", "fair", "poor"],
+          "description": "good=判断に十分 / fair=一部判断しにくい / poor=判断が難しい"
+        },
+        "issues": {
+          "type": "array",
+          "description": "画像の問題点",
+          "items": {
+            "type": "string",
+            "enum": ["dark", "overexposed", "blurry", "too_far", "partially_hidden", "label_unreadable", "cluttered"]
+          }
+        },
+        "contains_waste": {
+          "type": "boolean",
+          "description": "ゴミと言える物が写っているか"
+        },
+        "retake_advice": {
+          "type": ["string", "null"],
+          "description": "撮り直しの具体的なアドバイス（日本語）。不要なら null"
+        }
+      },
+      "required": ["overall_quality", "issues", "contains_waste", "retake_advice"]
+    },
+    "items": {
+      "type": "array",
+      "description": "画像内で確認できた物。写っていない物は含めない",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "description": "item_1, item_2 … の連番" },
+          "name": { "type": "string", "description": "物の名前（日本語）。特定できなければ「不明な物体」" },
+          "name_candidates": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "name 以外に考えられる候補。なければ []"
+          },
+          "description": { "type": "string", "description": "見た目の特徴（日本語）" },
+          "location": { "type": "string", "description": "画像内の位置（日本語）" },
+          "quantity": { "type": ["integer", "null"], "description": "個数。数えられなければ null" },
+          "confidence": {
+            "type": "string",
+            "enum": ["high", "medium", "low"],
+            "description": "物の種類の認識の確実性"
+          },
+          "confidence_reason": { "type": "string", "description": "確実性の理由（日本語）" },
+          "components": {
+            "type": "array",
+            "description": "部位ごとの材質",
+            "items": {
+              "type": "object",
+              "properties": {
+                "part": { "type": "string", "description": "部位（全体・本体・キャップ・ラベル等）" },
+                "material": { "type": "string", "description": "推定される材質（日本語）。不明なら「不明」" },
+                "material_basis": {
+                  "type": "string",
+                  "enum": ["observed", "inferred", "unknown"],
+                  "description": "observed=表示が読める/明白 / inferred=推測 / unknown=判断不能"
+                },
+                "evidence": { "type": "string", "description": "判断の根拠（日本語）" }
+              },
+              "required": ["part", "material", "material_basis", "evidence"]
+            }
+          },
+          "is_composite": {
+            "type": "string",
+            "enum": ["yes", "no", "unknown"],
+            "description": "複数の素材で構成されているか"
+          },
+          "sorting": {
+            "type": "array",
+            "description": "別々に処分する部位ごとの分別情報",
+            "items": {
+              "type": "object",
+              "properties": {
+                "target": { "type": "string", "description": "対象部位（全体・本体・キャップ・ラベル等）" },
+                "rule_status": {
+                  "type": "string",
+                  "enum": ["applied", "needs_confirmation", "not_found", "no_rules"],
+                  "description": "applied=公式ルールに該当 / needs_confirmation=候補はあるが確定不可 / not_found=ルールに記載なし / no_rules=ルール未提供"
+                },
+                "category": {
+                  "type": ["string", "null"],
+                  "description": "公式ルール上の区分名（ルールの表記のまま）。applied 以外は null"
+                },
+                "disposal_method": {
+                  "type": "string",
+                  "description": "出し方（ルールの要約）。applied 以外は「自治体の公式情報を確認してください」"
+                },
+                "rule_ids": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "description": "根拠にしたルールID。applied 以外は []"
+                },
+                "candidates": {
+                  "type": "array",
+                  "description": "needs_confirmation のときの候補区分",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "category": { "type": "string", "description": "候補の区分名（ルールの表記のまま）" },
+                      "condition": { "type": "string", "description": "この区分になる条件（日本語）" },
+                      "rule_ids": { "type": "array", "items": { "type": "string" } }
+                    },
+                    "required": ["category", "condition", "rule_ids"]
+                  }
+                }
+              },
+              "required": ["target", "rule_status", "category", "disposal_method", "rule_ids", "candidates"]
+            }
+          },
+          "cautions": {
+            "type": "array",
+            "description": "注意事項",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": ["official_rule", "general_safety", "image_observation"],
+                  "description": "official_rule=公式ルール由来 / general_safety=一般的な安全注意 / image_observation=画像から気づいた点"
+                },
+                "text": { "type": "string", "description": "注意事項（日本語）" }
+              },
+              "required": ["type", "text"]
+            }
+          },
+          "unknowns": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "画像だけでは判断できない情報"
+          },
+          "questions_for_user": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "ユーザーへの確認質問"
+          }
+        },
+        "required": [
+          "id", "name", "name_candidates", "description", "location", "quantity",
+          "confidence", "confidence_reason", "components", "is_composite",
+          "sorting", "cautions", "unknowns", "questions_for_user"
+        ]
+      }
+    },
+    "overall_notes": {
+      "type": ["string", "null"],
+      "description": "画像全体についての補足（日本語）。なければ null"
+    }
+  },
+  "required": ["schema_version", "image_assessment", "items", "overall_notes"]
+}

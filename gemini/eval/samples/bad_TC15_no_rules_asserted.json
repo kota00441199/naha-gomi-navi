@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "image_assessment": { "overall_quality": "good", "issues": [], "contains_waste": true, "retake_advice": null },
+  "items": [
+    {
+      "id": "item_1",
+      "name": "ペットボトル",
+      "name_candidates": [],
+      "description": "透明な飲料用ボトル。",
+      "location": "画像中央",
+      "quantity": 1,
+      "confidence": "high",
+      "confidence_reason": "形状がはっきり写っているため。",
+      "components": [
+        { "part": "本体", "material": "PET", "material_basis": "inferred", "evidence": "形状から推測されます。" }
+      ],
+      "is_composite": "yes",
+      "sorting": [
+        {
+          "target": "本体",
+          "rule_status": "applied",
+          "category": "資源ごみ",
+          "disposal_method": "資源ごみの日に出す。",
+          "rule_ids": [],
+          "candidates": []
+        }
+      ],
+      "cautions": [{ "type": "official_rule", "text": "キャップは外してください。" }],
+      "unknowns": [],
+      "questions_for_user": []
+    }
+  ],
+  "overall_notes": null
+}

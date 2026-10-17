@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "image_assessment": {
+    "overall_quality": "good",
+    "issues": [],
+    "contains_waste": true,
+    "retake_advice": null
+  },
+  "items": [
+    {
+      "id": "item_1",
+      "name": "ペットボトル",
+      "name_candidates": [],
+      "description": "透明な500ml程度の飲料用ボトル。青いキャップと、緑色のフィルムラベルが付いている。",
+      "location": "画像中央",
+      "quantity": 1,
+      "confidence": "high",
+      "confidence_reason": "飲料用ペットボトル特有の形状がはっきり写っており、ラベルにPETマークが読めるため。",
+      "components": [
+        { "part": "本体", "material": "PET（ポリエチレンテレフタレート）", "material_basis": "observed", "evidence": "ラベルにPET 1の識別マークが読める。" },
+        { "part": "キャップ", "material": "プラスチック", "material_basis": "inferred", "evidence": "表示は見えないが、形状と質感からプラスチック製と推測されます。" },
+        { "part": "ラベル", "material": "プラスチック（フィルム）", "material_basis": "inferred", "evidence": "薄く光沢のあるフィルム状のため、プラスチック製と推測されます。" }
+      ],
+      "is_composite": "yes",
+      "sorting": [
+        {
+          "target": "本体",
+          "rule_status": "applied",
+          "category": "資源化物（缶・びん・ペットボトル）",
+          "disposal_method": "キャップとラベルを取り、中を空にして軽くすすぎ、なるべくつぶして透明の袋に入れて出す。",
+          "rule_ids": ["N03"],
+          "candidates": []
+        },
+        {
+          "target": "キャップ",
+          "rule_status": "applied",
+          "category": "もやすごみ",
+          "disposal_method": "プラキャップは指定ごみ袋（赤）に入れて、もやすごみで出す。",
+          "rule_ids": ["N03", "N01"],
+          "candidates": []
+        },
+        {
+          "target": "ラベル",
+          "rule_status": "applied",
+          "category": "もやすごみ",
+          "disposal_method": "プラスチック類として指定ごみ袋（赤）に入れて出す。",
+          "rule_ids": ["N01"],
+          "candidates": []
+        }
+      ],
+      "cautions": [
+        { "type": "official_rule", "text": "キャップとラベルを取ってから出してください。" },
+        { "type": "official_rule", "text": "中身を空にして軽くすすいでください。" }
+      ],
+      "unknowns": ["中身が残っているか"],
+      "questions_for_user": ["ボトルの中身は空になっていますか？"]
+    }
+  ],
+  "overall_notes": null
+}

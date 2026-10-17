@@ -1,0 +1,24 @@
+{
+  "name": "gomi-gemini-eval",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ゴミ分別AI（Gemini）のプロンプト検証ツール。アプリ本体のコードではありません。",
+  "type": "module",
+  "scripts": {
+    "selftest": "tsx src/selftest.ts",
+    "check": "tsx src/run-eval.ts --dry-run",
+    "ping": "tsx src/ping.ts",
+    "eval": "tsx src/run-eval.ts",
+    "typecheck": "tsc --noEmit",
+    "docs": "tsx src/gen-testcase-doc.ts"
+  },
+  "dependencies": {
+    "@google/genai": "^2.30.0",
+    "ajv": "^8.20.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3"
+  }
+}
