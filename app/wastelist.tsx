@@ -23,15 +23,11 @@ export const WasteList = () => {
   const navigate = useNavigate();
 
   // 選択中のカテゴリ
-  const [selectedCategory, setSelectedCategory] =
-    useState("すべて");
+  const [selectedCategory, setSelectedCategory] = useState("すべて");
 
   // 選択したカテゴリに該当する粗大ごみを抽出
   const filteredItems = wasteItems.filter((item) => {
-    return (
-      selectedCategory === "すべて" ||
-      item.category === selectedCategory
-    );
+    return selectedCategory === "すべて" || item.category === selectedCategory;
   });
 
   return (
@@ -44,15 +40,11 @@ export const WasteList = () => {
           ← 戻る
         </button>
 
-        <h1 className="text-2xl font-bold">
-          粗大ごみを探す
-        </h1>
+        <h1 className="text-2xl font-bold">粗大ごみを探す</h1>
       </header>
 
       <section className="mx-auto max-w-2xl">
-        <h2 className="mb-3 text-lg font-bold">
-          カテゴリから探す
-        </h2>
+        <h2 className="mb-3 text-lg font-bold">カテゴリから探す</h2>
 
         {/* カテゴリ一覧 */}
         <div className="overflow-hidden rounded-xl border bg-white">
@@ -80,10 +72,7 @@ export const WasteList = () => {
         {filteredItems.length > 0 ? (
           <ul className="space-y-2">
             {filteredItems.map((item) => (
-              <li
-                key={item.id}
-                className="rounded-xl border bg-white p-4"
-              >
+              <li key={item.id} className="rounded-xl border bg-white p-4">
                 <p className="font-bold">{item.name}</p>
                 <p className="mt-1 text-sm text-gray-600">
                   カテゴリ：{item.category}
