@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "dev:auto-input": "vite --config vite.automation.config.ts --host 127.0.0.1 --port 5173 --strictPort",
+    "auto-input": "npm run build && npm --prefix official-auto-input start"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",

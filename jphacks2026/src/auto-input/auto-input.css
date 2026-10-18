@@ -1,0 +1,30 @@
+.auto-input-page { max-width: 960px; margin: auto; padding: 32px 20px 80px; }
+.auto-input-page .auto-input-hero { padding: 32px 0; }
+.auto-input-page h1 { font-size: clamp(28px, 5vw, 40px); font-weight: 800; margin: 12px 0; }
+.auto-input-page h3 { font-size: 18px; font-weight: 700; margin: 20px 0 10px; }
+.auto-input-page .auto-input-badge { color: #047857; font-weight: 700; font-size: 13px; }
+.auto-input-page ol { display: flex; flex-wrap: wrap; gap: 12px 28px; list-style: decimal inside; margin-top: 20px; font-weight: 600; }
+.auto-input-page .automation-panel { border: 1px solid #d1e5dc; border-radius: 20px; background: white; overflow: hidden; }
+.auto-input-page summary { cursor: pointer; padding: 18px; background: #edf6ef; }
+.auto-input-page summary span { display: block; font-size: 14px; color: #52645a; }
+.auto-input-page .automation-body { padding: 24px; display: grid; gap: 18px; }
+.auto-input-page .automation-step { border: 1px solid #dce5df; border-radius: 12px; padding: 16px; min-width: 0; }
+.auto-input-page .automation-step summary { margin: -16px -16px 16px; border-radius: 12px; }
+.auto-input-page label { display: block; font-size: 14px; font-weight: 600; margin: 10px 0; }
+.auto-input-page input:not([type=checkbox]):not([type=radio]), .auto-input-page select { display: block; width: 100%; border: 1px solid #b7c9be; border-radius: 8px; padding: 10px; background: white; margin-top: 5px; font-weight: 400; min-width: 0; }
+.auto-input-page .profile-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0 16px; }
+.auto-input-page .assist-actions, .auto-input-page .weekday-options { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.auto-input-page .primary, .auto-input-page .secondary { padding: 11px 16px; border-radius: 10px; border: 1px solid #16634b; margin: 5px 0; font-weight: 600; }
+.auto-input-page .primary { background: #16634b; color: white; }
+.auto-input-page .secondary { background: white; color: #16634b; }
+.auto-input-page .text-button { color: #16634b; text-decoration: underline; padding: 8px; }
+.auto-input-page .remote-check { display: flex; align-items: baseline; gap: 10px; }
+.auto-input-page input[type=checkbox], .auto-input-page input[type=radio] { accent-color: #16634b; margin-right: 6px; }
+.auto-input-page .plan-row { display: grid; grid-template-columns: minmax(0,1fr) 80px auto; gap: 10px; align-items: center; }
+.auto-input-page .muted { color: #52645a; font-size: 14px; }
+.auto-input-page .notice { background: #fff4df; color: #854d0e; padding: 14px; border-radius: 10px; overflow-wrap: anywhere; }
+.auto-input-page .import-note, .auto-input-page .official-note { background: #e9f5ee; padding: 14px; border-radius: 10px; margin-bottom: 16px; }
+.auto-input-page .assist-memo { white-space: pre-wrap; overflow-wrap: anywhere; max-height: 400px; overflow: auto; font: inherit; font-size: 14px; }
+.auto-input-page .remote-image { max-width: 100%; height: auto; }
+.auto-input-page :focus-visible { outline: 3px solid #d6a741; outline-offset: 3px; }
+@media(max-width: 600px) { .auto-input-page .profile-grid { grid-template-columns: 1fr; } .auto-input-page .automation-body { padding: 14px; } .auto-input-page .plan-row { grid-template-columns: minmax(0,1fr) 60px auto; gap: 5px; } }

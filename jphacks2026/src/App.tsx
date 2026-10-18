@@ -14,6 +14,11 @@ type ScheduledItem = WasteItem & {
 // 自治体の正式な申し込みURLに変更してください
 const APPLICATION_URL = "https://www.naha-sodaigomi.com/receipts/home/entry";
 
+function readSchedule() {
+  try { const v = JSON.parse(localStorage.getItem('waste-pickup-schedule') || '{}'); return {date: typeof v.date === 'string' ? v.date : '', place: typeof v.place === 'string' ? v.place : ''}; }
+  catch { return {date: '', place: ''}; }
+}
+
 export default function App() {
   const navigate = useNavigate();
   const [query, setQuery] = useState("");
@@ -21,8 +26,8 @@ export default function App() {
   const [category, setCategory] = useState("すべて");
   const [selectedItem, setSelectedItem] = useState<WasteItem | null>(null);
   const [selectedQuantity, setSelectedQuantity] = useState(1);
-  const [pickupDate, setPickupDate] = useState("");
-  const [pickupPlace, setPickupPlace] = useState("");
+  const [pickupDate, setPickupDate] = useState(() => readSchedule().date);
+  const [pickupPlace, setPickupPlace] = useState(() => readSchedule().place);
   const [items, setItems] = useState<ScheduledItem[]>(() => {
   const savedItems = localStorage.getItem("waste-checklist-items");
 
@@ -41,6 +46,10 @@ useEffect(() => {
     JSON.stringify(items)
   );
 }, [items]);
+
+  useEffect(() => {
+    localStorage.setItem('waste-pickup-schedule', JSON.stringify({date: pickupDate, place: pickupPlace}));
+  }, [pickupDate, pickupPlace]);
 
   // カテゴリ一覧画面からの登録情報を受け取る
   useEffect(() => {
@@ -595,6 +604,12 @@ return Array.from(summaries.values());
               ここにリンクが表示されます。
             </p>
           )}
+        </section>
+
+        <section className="rounded-2xl bg-emerald-50 border border-emerald-100 p-5 md:p-7">
+          <h2 className="text-xl font-bold">自動申し込み</h2>
+          <p className="text-sm text-slate-600 mt-2 mb-4">住所・品目・希望日を別ページで設定し、公式サイトへの入力をサポートします。最終申し込みはご本人が確認して行います。</p>
+          <button type="button" onClick={() => navigate('/auto-input')} className="rounded-xl bg-emerald-700 text-white px-5 py-3 font-semibold">自動入力ページへ →</button>
         </section>
 
         {/* 収集予定の登録 */}
