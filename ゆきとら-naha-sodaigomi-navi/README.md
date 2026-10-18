@@ -133,3 +133,16 @@ npm run test:e2e
 - 確認済みデータは2026-10-17時点。検索時の再取得・自動更新はしません。更新手順はSOURCES.md参照。
 - 入力・見積もり・支払方法・編集中の内容は同じ端末・ブラウザーのlocalStorageに保存します。別の端末とは同期しません。共有端末では「保存データをすべて消去」を利用してください。保存が制限される環境では保存失敗を表示し、画面操作は継続できます。
 - 予約・決済・収集日の連携、写真認識、ログインは実装していません。
+
+## 公式申込の自動入力
+
+`/auto-input` に画面を追加しています。`src/lib/engine.ts`、`data.ts`、`storage.ts` も必要なので、このプロジェクトのフォルダ全体を取得してください。
+
+```sh
+npm ci
+npx playwright install chromium
+npm run build
+npm start
+```
+
+起動後は http://localhost:3000/auto-input にアクセスします。`npm run dev` や静的配信のみでは自動入力APIは動きません。操作方法は [automation/README.md](automation/README.md) を参照してください。
