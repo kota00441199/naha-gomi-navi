@@ -1,32 +1,15 @@
 
 'use client';
 import { useEffect, useMemo, useState } from "react";
-import {wasteItems, type WasteItem,} from "./nahagomidata";
-import {SODAI_TICKET,DIFFICULT_TICKET} from "./nahagomidata";
+import { wasteItems, type WasteItem } from "./nahagomidata";
+import { SODAI_TICKET, DIFFICULT_TICKET } from "./nahagomidata";
 import { categories } from "./nahagomidata";
 import { useNavigate } from "react-router-dom";
-import AutomationPanel from './automation-panel';
-import type {Entry} from './engine';
 
 type ScheduledItem = WasteItem & {
   collected: boolean;
 };
 
-
-const STORAGE_KEY='naha-sodaigomi-navi-state-v1';
-
- const [entries,setEntries]=useState<Entry[]>([]);
-
- useEffect(()=>{
-  try{
-   const raw=localStorage.getItem(STORAGE_KEY);
-   if(!raw)return;
-   const saved=JSON.parse(raw) as {entries?:Entry[]};
-   if(Array.isArray(saved.entries))setEntries(saved.entries);
-  }catch{
-   // 自動入力ページの手動設定はそのまま利用できるようにする。
-  }
- },[]);
 
 // 自治体の正式な申し込みURLに変更してください
 const APPLICATION_URL = "https://www.naha-sodaigomi.com/receipts/home/entry";
@@ -236,7 +219,7 @@ return Array.from(summaries.values());
 
   const [selectedRegion, setSelectedRegion] = useState("");
 
-  {/*/ 沖縄県の市町村一覧
+  // 沖縄県の市町村一覧
   const regions = [
     "那覇市",
     "宜野湾市",
@@ -280,7 +263,7 @@ return Array.from(summaries.values());
     "竹富町",
     "与那国町",
   ];
-  */}
+
   return (
     <div className="min-h-screen bg-emerald-50 text-slate-800">
       {/* ヘッダー */}
@@ -293,7 +276,7 @@ return Array.from(summaries.values());
                 すっきり回収ナビ
               </h1>
               <p className="text-xs text-slate-500">
-                粗大ごみの分別・申し込み管理アプリ
+                粗大ゴミの分別・申し込み管理アプリ
               </p>
             </div>
           </a>
@@ -314,7 +297,7 @@ return Array.from(summaries.values());
             SMART WASTE GUIDE
           </p>
           <h2 className="text-3xl md:text-4xl font-bold leading-relaxed">
-            粗大ごみ
+            粗大ゴミ、
             <br />
             迷わず片付けよう。
           </h2>
@@ -325,9 +308,9 @@ return Array.from(summaries.values());
           </p>
         </section>
 
-       {/* 検索エリア */}
+        {/* 検索エリア */}
         <div className="mx-auto max-w-md">
-{/*        <label
+        <label
           htmlFor="region"
           className="mb-2 block font-bold"
         >
@@ -350,7 +333,7 @@ return Array.from(summaries.values());
             </option>
           ))}
         </select>
-*/}
+
         {selectedRegion && (
           <p className="mt-4">
             選択した市町村：{selectedRegion}
@@ -362,7 +345,7 @@ return Array.from(summaries.values());
             何を捨てますか？
           </h2>
           <p className="text-sm text-slate-500 mb-5">
-            用具名を入力して、該当する粗大ごみを探しましょう。
+            用具名を入力して、該当する粗大ゴミを探しましょう。
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3">
@@ -530,10 +513,10 @@ return Array.from(summaries.values());
 
           {items.length === 0 ? (
             <div className="text-center py-10 rounded-xl bg-slate-50">
-              <p className="text-3xl mb-3">🗑️</p>
+              <p className="text-3xl mb-3">🧹</p>
               <p className="font-semibold">まだ用具が登録されていません</p>
               <p className="text-sm text-slate-500 mt-2">
-                上の検索欄から粗大ごみを追加してください。
+                上の検索欄から粗大ゴミを追加してください。
               </p>
             </div>
           ) : (
@@ -613,14 +596,6 @@ return Array.from(summaries.values());
             </p>
           )}
         </section>
-
-
-<>
-  <a href="#main" className="skip">本文へ移動</a>
-  <header><a href="/" className="brand"><span className="logo" aria-hidden="true">↗</span><span>那覇 <b>粗大ごみナビ</b><small>公式申込の自動入力</small></span></a><div className="header-meta"><span className="area">対応地域：那覇市</span><span className="pill">試験版</span></div></header>
-  <main id="main"><section className="card auto-input-hero"><p className="eyebrow">OFFICIAL APPLICATION ASSIST</p><h1>公式申込の<br/><span>自動入力</span></h1><p className="muted">保存した住所・品目を那覇市公式受付へ転記します。メール認証、内容確認、最終申込・支払いは本人が行います。</p><a className="text-button" href="/">← 品目検索へ戻る</a></section><AutomationPanel entries={entries}/></main>
-  <footer><b>那覇 粗大ごみナビ</b><p>公式受付の内容を確認してから、本人が申込みを確定してください。</p><a href="/">トップへ戻る</a></footer>
- </>;
 
         {/* 収集予定の登録 */}
         <section
