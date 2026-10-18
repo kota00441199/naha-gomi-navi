@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@source not "../jphacks2026";
   
 :root {
   --ink:#243e36;
