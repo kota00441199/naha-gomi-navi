@@ -5,7 +5,7 @@ export interface Session {entries:Entry[];payment:'ticket'|'cashless';draft:{ite
 function readAnswers(value:unknown):Answers {
  if(!value||typeof value!=='object')throw new Error('Invalid answers');
  const raw=value as Record<string,unknown>;const a={...initialAnswers};
- const enums={origin:['home','business','unknown'],spring:['yes','no','unknown'],seats:['1','2','unknown'],bag:['yes','no','unknown'],battery:['yes','no','unknown'],limits:['yes','no','unknown']};
+ const enums={weightBand:['under','over','unknown'],volumeBand:['under','over','unknown'],origin:['home','business','unknown'],spring:['yes','no','unknown'],seats:['1','2','unknown'],bag:['yes','no','unknown'],battery:['yes','no','unknown'],limits:['yes','no','unknown']};
  for(const [k,options] of Object.entries(enums)){if(raw[k]!==undefined){if(!options.includes(raw[k] as string))throw new Error('Invalid choice');Object.assign(a,{[k]:raw[k]});}}
  if(!Number.isInteger(raw.quantity)||Number(raw.quantity)<1||Number(raw.quantity)>99)throw new Error('Invalid quantity');a.quantity=Number(raw.quantity);
  for(const k of ['weight','width','depth','height'] as const){if(raw[k]!==undefined&&raw[k]!==null){if(typeof raw[k]!=='number'||!Number.isFinite(raw[k])||raw[k]<=0)throw new Error('Invalid measurement');a[k]=raw[k];}}

@@ -4,3 +4,5 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
 .workspace-controls{margin:0;min-width:0}.save-status{background:#eef2ea;padding:12px 18px;border-radius:10px;margin:12px 0;font-size:13px}.save-status p{margin:4px 0}.collection-status{border:1px solid #b87825;border-radius:10px;padding:16px;margin-bottom:16px;background:#fff8e9}.collection-status[data-status=possible]{border-color:#176751;background:#edf4ea}.collection-status h4{margin:0 0 8px}.collection-status p{margin:0;font-size:14px}
+
+.question-step .choices{flex-direction:column}.question-step .primary,.answer-review>.primary{width:100%}.answer-review dl>div{padding:12px 0;border-bottom:1px solid var(--line)}.answer-review dt{font-size:13px;color:var(--muted)}.answer-review dd{margin:4px 0;font-weight:bold}.review-confirm{display:flex;gap:12px;align-items:center;margin:24px 0;padding:16px;background:var(--pale);border-radius:8px}.review-confirm input{width:20px;height:20px;accent-color:var(--green)}
