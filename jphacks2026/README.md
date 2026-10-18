@@ -1,75 +1,68 @@
-# React + TypeScript + Vite
+# すっきり回収ナビ
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 概要
 
-Currently, two official plugins are available:
+「すっきり回収ナビ」は、沖縄県那覇市の粗大ごみ処分をサポートするWebアプリケーションです。
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+処分したいごみの検索や、必要な処理券の確認、収集予定の管理などを通して、粗大ごみの処分をスムーズに行えるようにします。
 
-## React Compiler
+## 主な機能
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **ごみの検索**：処分したいごみの名前から検索できます。
+- **カテゴリ別検索**：ごみをカテゴリごとに探せます。
+- **処分リストの管理**：処分するごみをリストに追加し、回収状況を管理できます。
+- **処理券の確認**：登録したごみに応じて、必要な処理券の種類・枚数・金額を確認できます。
+- **収集予定の登録**：収集日や回収場所を登録できます。
+- **スマートフォン対応**：スマートフォンでも利用しやすいレイアウトを目指しています。
 
-## Expanding the ESLint configuration
+## 使用技術
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- React Router
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 動作環境
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Node.js
+- npm
+- Webブラウザ
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 起動方法
 
+### 1. リポジトリをクローンする
+
+```bash
+git clone https://github.com/hikaruhana0514-lang/naha-gomi-navi.git
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. プロジェクトのディレクトリに移動する
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+cd naha-gomi-navi
 ```
+
+### 3. 依存パッケージをインストールする
+
+```bash
+npm install
+```
+
+### 4. 開発サーバーを起動する
+
+```bash
+npm run dev
+```
+
+ターミナルに表示されたURLをブラウザで開くと、アプリを利用できます。
+
+## 開発について
+
+このプロジェクトは、React と TypeScript を用いてフロントエンドを開発しています。
+
+画面のスタイリングには Tailwind CSS を使用し、React Router によって画面遷移を管理しています。
+
+## ライセンス
+
+未設定
