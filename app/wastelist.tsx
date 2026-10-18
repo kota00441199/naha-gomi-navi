@@ -1,5 +1,7 @@
+"use client";
+
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import Link from "next/link";
 import { wasteItems } from "./wasteItems";
 
 export const categories = [
@@ -20,8 +22,6 @@ export const categories = [
 ];
 
 export const WasteList = () => {
-  const navigate = useNavigate();
-
   // 選択中のカテゴリ
   const [selectedCategory, setSelectedCategory] = useState("すべて");
 
@@ -33,12 +33,12 @@ export const WasteList = () => {
   return (
     <main className="min-h-screen bg-gray-50 p-4">
       <header className="mb-4 flex items-center gap-3">
-        <button
-          onClick={() => navigate("/")}
+        <Link
+          href="/"
           className="rounded-lg border bg-white px-3 py-2 hover:bg-gray-100"
         >
           ← 戻る
-        </button>
+        </Link>
 
         <h1 className="text-2xl font-bold">粗大ごみを探す</h1>
       </header>

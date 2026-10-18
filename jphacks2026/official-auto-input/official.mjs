@@ -1,4 +1,4 @@
-import {profileInput,itemInput,officialUrl} from './validation.mjs';
+import {profileInput,itemInput,officialUrl,datePolicyInput} from './validation.mjs';
 const textInputs=p=>p.locator('input:visible:not([type=hidden]):not([type=button]):not([type=submit]):not([type=checkbox]):not([type=radio])');
 async function assertPage(p,path,title){officialUrl(p.url());if(new URL(p.url()).pathname!==path||!await p.getByText(title,{exact:true}).count())throw Error(`${title}画面を開いてください。メール認証が必要な場合は、メール内の元のリンクを開いてください。`);}
 async function settle(p){await p.waitForLoadState('domcontentloaded');}
@@ -37,10 +37,10 @@ export async function fillItems(p,value){
    }
    if(matches.length!==1)throw Error(`「${item.name}」に完全一致する公式品目がありません。公式画面の名称を確認してください。`);
    const row=matches[0];await row.locator('input[type=checkbox]').check();
+   completed.push(item.name);
    const quantity=row.locator('select:visible,input[type=number]:visible,input[type=text]:visible');
    if(await quantity.count()===1){if(await quantity.evaluate(e=>e.tagName)==='SELECT')await quantity.selectOption({label:String(item.quantity)});else await quantity.fill(String(item.quantity));}
    else if(item.quantity!==1)throw Error(`「${item.name}」の数量を公式画面で指定してください。`);
-   completed.push(item.name);
   }
  }catch(e){throw Error(`${e.message}${completed.length?' 選択済み：'+completed.join('、')+'。画面で確認してください。':''}`);}
 }
@@ -79,9 +79,9 @@ export async function selectCalendarDate(p,policy){
 // 明示した中間画面だけを進める。最終申込・支払いボタンは一切押さない。
 export async function runToDate(p,settings){
  officialUrl(p.url());
- const {profile,email,items,datePolicy}=settings;
+ const {profile,items,datePolicy}=settings;
  const v=profileInput(profile);itemInput(items);
- if(!datePolicy||!['manual','earliest','weekdays'].includes(datePolicy.mode)||datePolicy.mode==='weekdays'&&(!datePolicy.weekdays?.length||datePolicy.weekdays.some(d=>!Number.isInteger(d)||d<0||d>6)))throw Error('アプリで希望曜日か収集日の選び方を設定してください。');
+ datePolicyInput(datePolicy);
  let path=new URL(p.url()).pathname;
  if(path==='/receipts/entry/profile'){
   await fillProfile(p,v);await p.getByRole('button',{name:'次へ（自宅確認）',exact:true}).click();await settle(p);path=new URL(p.url()).pathname;

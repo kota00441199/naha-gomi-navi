@@ -91,7 +91,7 @@ export default function App() {
   const addItem = (item: WasteItem) => {
     setItems((prev) => [
       ...prev,
-      { ...item, id: Date.now(), collected: false },
+      { ...item, id: prev.reduce((max, entry) => Math.max(max, entry.id), 0) + 1, collected: false },
     ]);
     setSelectedItem(null);
     setQuery("");

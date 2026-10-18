@@ -17,16 +17,22 @@ export function profileInput(value){
 }
 export function itemInput(items){
  if(!Array.isArray(items)||!items.length||items.length>6)throw Error('1〜6点の品目を指定してください。');
- const result=items.map(i=>({name:String(i.name??'').trim(),quantity:Number(i.quantity)}));
+ const result=items.map(i=>({name:typeof i?.name==='string'?i.name.trim():'',quantity:typeof i?.quantity==='number'||(typeof i?.quantity==='string'&&/^\d+$/.test(i.quantity.trim()))?Number(i.quantity):NaN}));
  if(result.some(i=>!i.name||i.name.length>100||!Number.isInteger(i.quantity)||i.quantity<1)||result.reduce((n,i)=>n+i.quantity,0)>6)throw Error('公式品目名と数量を確認してください。合計6点までです。');
  if(new Set(result.map(i=>i.name.replace(/\s/g,''))).size!==result.length)throw Error('同じ品目は数量をまとめてください。');
  return result;
 }
-export function chooseDate(candidates,policy,today=new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Tokyo'}).format(new Date())){
+export function datePolicyInput(policy){
  if(!policy||!['earliest','weekdays','manual'].includes(policy.mode))throw Error('収集日の選び方を設定してください。');
- if(policy.mode==='manual')return null;
+
  if(policy.mode==='weekdays'&&(!Array.isArray(policy.weekdays)||!policy.weekdays.length||policy.weekdays.some(d=>!Number.isInteger(d)||d<0||d>6)))throw Error('希望曜日を1つ以上選んでください。');
- const dates=candidates.filter(c=>/^\d{4}-\d{2}-\d{2}$/.test(c.date)&&c.available&&c.date>=today).filter(c=>{const d=new Date(c.date+'T00:00:00Z');return !Number.isNaN(+d)&&d.toISOString().slice(0,10)===c.date&&(policy.mode==='earliest'||policy.weekdays.includes(d.getUTCDay()));}).sort((a,b)=>a.date.localeCompare(b.date));
+ return policy;
+}
+export function chooseDate(candidates,policy,today=new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Tokyo'}).format(new Date())){
+ datePolicyInput(policy);
+ if(policy.mode==='manual')return null;
+ if(!Array.isArray(candidates))throw Error('収集日の候補を確認してください。');
+ const dates=candidates.filter(c=>c&&/^\d{4}-\d{2}-\d{2}$/.test(c.date)&&c.available===true&&c.date>=today).filter(c=>{const d=new Date(c.date+'T00:00:00Z');return !Number.isNaN(+d)&&d.toISOString().slice(0,10)===c.date&&(policy.mode==='earliest'||policy.weekdays.includes(d.getUTCDay()));}).sort((a,b)=>a.date.localeCompare(b.date));
  if(!dates.length)throw Error('希望条件に合う空き日がありません。別の曜日には変更していません。');
  return dates[0];
 }
