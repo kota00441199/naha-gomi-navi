@@ -1,16 +1,29 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import { wasteItems, type WasteItem } from "./wasteItems";
-import { categories } from "./wastelist";
+import {
+  categories,
+  DIFFICULT_TICKET,
+  SODAI_TICKET,
+  wasteItems,
+  type WasteItem,
+} from "./wasteItems";
 
 type ScheduledItem = WasteItem & {
   collected: boolean;
 };
 
+type PendingWasteItem = {
+  item: WasteItem;
+  quantity: number;
+};
+
+const CHECKLIST_ITEMS_KEY = "waste-checklist-items";
+const PENDING_ITEMS_KEY = "waste-list-pending-items";
+
 // 自治体の正式な申し込みURLに変更してください
-const APPLICATION_URL = "";
+const APPLICATION_URL = "https://www.naha-sodaigomi.com/receipts/home/entry";
 
 // 沖縄県の市町村一覧
 const regions = [
@@ -57,6 +70,49 @@ const regions = [
   "与那国町",
 ];
 
+function readStoredItems(): ScheduledItem[] {
+  const savedItems = localStorage.getItem(CHECKLIST_ITEMS_KEY);
+
+  if (!savedItems) return [];
+
+  try {
+    return JSON.parse(savedItems) as ScheduledItem[];
+  } catch {
+    return [];
+  }
+}
+
+// カテゴリ一覧画面からの登録情報を受け取る
+function takePendingItems(currentItems: ScheduledItem[]): ScheduledItem[] {
+  const storedItems = localStorage.getItem(PENDING_ITEMS_KEY);
+
+  if (!storedItems) return [];
+
+  // 二重登録を防ぐため、受け取り後に削除
+  localStorage.removeItem(PENDING_ITEMS_KEY);
+
+  try {
+    const pendingItems = JSON.parse(storedItems) as PendingWasteItem[];
+
+    if (!Array.isArray(pendingItems)) return [];
+
+    let nextId = Math.max(
+      Date.now(),
+      ...currentItems.map((item) => item.id + 1),
+    );
+
+    return pendingItems.flatMap(({ item, quantity }) =>
+      Array.from({ length: Math.max(0, Math.floor(quantity)) }, () => ({
+        ...item,
+        id: nextId++,
+        collected: false,
+      })),
+    );
+  } catch {
+    return [];
+  }
+}
+
 export default function App() {
   const router = useRouter();
   const [selectedRegion, setSelectedRegion] = useState("");
@@ -64,10 +120,23 @@ export default function App() {
   const [showList, setShowList] = useState(false);
   const [category, setCategory] = useState("すべて");
   const [selectedItem, setSelectedItem] = useState<WasteItem | null>(null);
+  const [selectedQuantity, setSelectedQuantity] = useState(1);
   const [pickupDate, setPickupDate] = useState("");
   const [pickupPlace, setPickupPlace] = useState("");
-  const [ticketInfo, setTicketInfo] = useState("");
   const [items, setItems] = useState<ScheduledItem[]>([]);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const storedItems = readStoredItems();
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setItems([...storedItems, ...takePendingItems(storedItems)]);
+    setIsLoaded(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isLoaded) return;
+    localStorage.setItem(CHECKLIST_ITEMS_KEY, JSON.stringify(items));
+  }, [isLoaded, items]);
 
   // 入力された文字に一致する候補を検索
   const suggestions = useMemo(() => {
@@ -87,16 +156,70 @@ export default function App() {
     );
   }, [category]);
 
-  // 用具を管理リストに追加
+  // 用具を管理リストに追加（個数分、別々の項目として登録）
   const addItem = (item: WasteItem) => {
-    setItems((prev) => [
-      ...prev,
-      { ...item, id: Date.now(), collected: false },
-    ]);
+    setItems((prev) => {
+      const firstId = Math.max(
+        Date.now(),
+        ...prev.map((current) => current.id + 1),
+      );
+      const newItems = Array.from({ length: selectedQuantity }, (_, index) => ({
+        ...item,
+        id: firstId + index,
+        collected: false,
+      }));
+      return [...prev, ...newItems];
+    });
     setSelectedItem(null);
+    setSelectedQuantity(1);
     setQuery("");
     setShowList(false);
   };
+
+  // 搬出チェックリストの内容から、必要な処理券の種類・金額・枚数を計算
+  const ticketRequirements = useMemo(() => {
+    const summaries = new Map<
+      string,
+      { name: string; price: number; count: number }
+    >();
+
+    items.forEach((item) => {
+      const difficultTicketItem =
+        item.fee === DIFFICULT_TICKET.items.springMattress.price ||
+        item.fee === DIFFICULT_TICKET.items.springSofa.price
+          ? { name: item.name, price: item.fee }
+          : undefined;
+
+      if (difficultTicketItem) {
+        // 適正処理困難物は、対象品目ごとの金額で集計
+        const key = `${DIFFICULT_TICKET.gomi}-${difficultTicketItem.price}`;
+        const current = summaries.get(key);
+
+        summaries.set(key, {
+          name: DIFFICULT_TICKET.name,
+          price: difficultTicketItem.price,
+          count: (current?.count ?? 0) + 1,
+        });
+      } else {
+        // 通常の粗大ゴミ処理券は300円単位で集計
+        const ticketCount =
+          item.ticketCount ?? Math.ceil(item.fee / SODAI_TICKET.unitPrice);
+
+        if (ticketCount > 0) {
+          const key = `${SODAI_TICKET.gomi}-${SODAI_TICKET.unitPrice}`;
+          const current = summaries.get(key);
+
+          summaries.set(key, {
+            name: SODAI_TICKET.name,
+            price: SODAI_TICKET.unitPrice,
+            count: (current?.count ?? 0) + ticketCount,
+          });
+        }
+      }
+    });
+
+    return Array.from(summaries.values());
+  }, [items]);
 
   // 搬出済みかどうかを切り替える
   const toggleCollected = (id: number) => {
@@ -123,13 +246,13 @@ export default function App() {
       <header className="bg-white border-b border-emerald-100">
         <div className="max-w-5xl mx-auto px-5 py-4 flex items-center justify-between">
           <a href="#" className="flex items-center gap-3">
-            <span className="text-3xl">♻️</span>
+            <span className="text-6xl">🗑️</span>
             <div>
               <h1 className="text-xl font-bold text-emerald-800">
                 すっきり回収ナビ
               </h1>
               <p className="text-xs text-slate-500">
-                粗大ゴミの分別・申し込み管理
+                粗大ゴミの分別・申し込み管理アプリ
               </p>
             </div>
           </a>
@@ -171,9 +294,13 @@ export default function App() {
             id="region"
             value={selectedRegion}
             onChange={(e) => setSelectedRegion(e.target.value)}
-            className="w-full rounded-xl border border-gray-300 p-3"
+            className={`box-border h-12 max-h-12 w-full overflow-hidden rounded-xl border border-gray-300 bg-white px-3 py-2 ${
+              selectedRegion ? "text-slate-800" : "text-slate-400"
+            }`}
           >
-            <option value="">市町村を選択</option>
+            <option value="" disabled hidden>
+              市町村を選択
+            </option>
 
             {regions.map((region) => (
               <option key={region} value={region}>
@@ -186,6 +313,7 @@ export default function App() {
             <p className="mt-4">選択した市町村：{selectedRegion}</p>
           )}
         </div>
+
         <section className="bg-white rounded-2xl p-5 md:p-7 shadow-sm">
           <h2 className="text-xl font-bold mb-2">何を捨てますか？</h2>
           <p className="text-sm text-slate-500 mb-5">
@@ -198,7 +326,7 @@ export default function App() {
               <input
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="例：椅子、テーブル、自転車"
+                placeholder="キーワードから探す　例：椅子、テーブル、自転車"
                 className="w-full border border-slate-300 rounded-xl pl-11 pr-4 py-3 outline-none focus:ring-2 focus:ring-emerald-500"
               />
 
@@ -210,6 +338,7 @@ export default function App() {
                         key={item.id}
                         onClick={() => {
                           setSelectedItem(item);
+                          setSelectedQuantity(1);
                           setQuery(item.name);
                         }}
                         className="w-full flex justify-between items-center px-4 py-3 text-left hover:bg-emerald-50 border-b last:border-b-0"
@@ -231,9 +360,9 @@ export default function App() {
 
             <button
               onClick={() => router.push("/waste-list")}
-              className="rounded-xl bg-sky-500 px-6 py-3 font-bold text-white hover:bg-sky-600"
+              className="rounded-xl border-3 border-black bg-emerald-500 px-6 py-3 font-bold text-white transition-all duration-200 hover:shadow-[4px_4px_0px_0px_black]"
             >
-              リストから探す
+              カテゴリから探す
             </button>
           </div>
 
@@ -262,7 +391,10 @@ export default function App() {
                 {filteredItems.map((item) => (
                   <button
                     key={item.id}
-                    onClick={() => setSelectedItem(item)}
+                    onClick={() => {
+                      setSelectedItem(item);
+                      setSelectedQuantity(1);
+                    }}
                     className={`text-left border rounded-xl p-4 hover:border-emerald-500 hover:bg-emerald-50 transition ${
                       selectedItem?.id === item.id
                         ? "border-emerald-600 bg-emerald-50"
@@ -289,15 +421,48 @@ export default function App() {
               <p className="text-sm text-slate-600 mt-2">
                 ジャンル：{selectedItem.category}
               </p>
-              <p className="text-sm text-slate-600 mt-1">
-                処理手数料の参考値：{selectedItem.fee}円
-              </p>
-              <button
-                onClick={() => addItem(selectedItem)}
-                className="mt-4 w-full sm:w-auto rounded-xl bg-emerald-700 text-white px-5 py-3 font-semibold hover:bg-emerald-800"
-              >
-                ＋ 搬出リストに追加
-              </button>
+              <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center">
+                <div className="flex w-fit items-center overflow-hidden rounded-xl border border-emerald-300 bg-white">
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setSelectedQuantity((quantity) =>
+                        Math.max(1, quantity - 1),
+                      )
+                    }
+                    disabled={selectedQuantity <= 1}
+                    aria-label="個数を減らす"
+                    className="px-4 py-3 font-bold hover:bg-emerald-100 disabled:cursor-not-allowed disabled:text-slate-300"
+                  >
+                    −
+                  </button>
+                  <span
+                    className="min-w-10 text-center font-bold"
+                    aria-live="polite"
+                  >
+                    {selectedQuantity}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setSelectedQuantity((quantity) => quantity + 1)
+                    }
+                    aria-label="個数を増やす"
+                    className="px-4 py-3 font-bold hover:bg-emerald-100"
+                  >
+                    ＋
+                  </button>
+                </div>
+                <p className="text-sm font-semibold text-slate-600">
+                  処理手数料の参考値：{selectedItem.fee * selectedQuantity}円
+                </p>
+                <button
+                  onClick={() => addItem(selectedItem)}
+                  className="w-full rounded-xl bg-emerald-700 px-5 py-3 font-semibold text-white hover:bg-emerald-800 sm:w-auto"
+                >
+                  ＋ 搬出リストに追加
+                </button>
+              </div>
             </div>
           )}
 
@@ -305,73 +470,6 @@ export default function App() {
             ※ 用具名・手数料はサンプルデータです。
             実際の分別区分や料金は自治体の情報に置き換えてください。
           </p>
-        </section>
-
-        {/* 収集予定の登録 */}
-        <section
-          id="schedule"
-          className="bg-white rounded-2xl p-5 md:p-7 shadow-sm"
-        >
-          <div className="flex items-center gap-3 mb-5">
-            <span className="text-2xl">📅</span>
-            <div>
-              <h2 className="text-xl font-bold">収集予定の登録</h2>
-              <p className="text-sm text-slate-500">
-                収集日と搬出に必要な情報を記録しましょう。
-              </p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <label className="text-sm font-semibold">
-              収集日
-              <input
-                type="date"
-                value={pickupDate}
-                onChange={(e) => setPickupDate(e.target.value)}
-                className="block w-full mt-2 border border-slate-300 rounded-xl px-3 py-3 font-normal"
-              />
-            </label>
-
-            <label className="text-sm font-semibold">
-              粗大ゴミを出す場所
-              <input
-                value={pickupPlace}
-                onChange={(e) => setPickupPlace(e.target.value)}
-                placeholder="例：自宅前の指定場所"
-                className="block w-full mt-2 border border-slate-300 rounded-xl px-3 py-3 font-normal"
-              />
-            </label>
-
-            <label className="text-sm font-semibold sm:col-span-2">
-              処理券について
-              <input
-                value={ticketInfo}
-                onChange={(e) => setTicketInfo(e.target.value)}
-                placeholder="例：処理券300円分を用意する"
-                className="block w-full mt-2 border border-slate-300 rounded-xl px-3 py-3 font-normal"
-              />
-            </label>
-          </div>
-
-          {pickupDate && (
-            <div className="mt-5 rounded-xl bg-amber-50 border border-amber-200 p-5">
-              <p className="font-bold text-amber-900">🔔 前日の確認予定</p>
-              <p className="text-sm text-amber-800 mt-2">
-                {reminderDate} に、以下の内容を確認しましょう。
-              </p>
-              <ul className="text-sm text-amber-900 mt-3 space-y-2">
-                <li>• 処理券：{ticketInfo || "未登録"}</li>
-                <li>• 搬出場所：{pickupPlace || "未登録"}</li>
-                <li>
-                  • 出すもの：
-                  {items.length > 0
-                    ? items.map((item) => item.name).join("、")
-                    : "搬出リストは空です"}
-                </li>
-              </ul>
-            </div>
-          )}
         </section>
 
         {/* 搬出チェックリスト */}
@@ -387,6 +485,13 @@ export default function App() {
               {items.filter((item) => item.collected).length}/{items.length}{" "}
               完了
             </span>
+          </div>
+
+          <div className="mb-5 rounded-xl bg-emerald-50 px-4 py-3">
+            <p className="text-sm font-semibold text-emerald-800">合計料金</p>
+            <p className="text-2xl font-bold text-emerald-900">
+              {items.reduce((total, item) => total + item.fee, 0)}円
+            </p>
           </div>
 
           {items.length === 0 ? (
@@ -417,7 +522,10 @@ export default function App() {
                   >
                     {item.name}
                     <span className="block text-sm text-slate-500 font-normal mt-1">
-                      {item.category}
+                      カテゴリ：{item.category}
+                    </span>
+                    <span className="block text-sm text-slate-500 font-normal mt-1">
+                      料金：{item.fee}円
                     </span>
                   </span>
                   <span
@@ -456,7 +564,7 @@ export default function App() {
               href={APPLICATION_URL}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl bg-emerald-700 text-white px-5 py-3 font-semibold hover:bg-emerald-800"
+              className="text-emerald-500 font-semibold hover:!text-sky-500 transition-colors duration-200"
             >
               申し込みサイトへ ↗
             </a>
@@ -464,6 +572,93 @@ export default function App() {
             <p className="text-sm text-amber-800 bg-amber-50 rounded-xl p-4">
               自治体の申し込みURLを設定すると、 ここにリンクが表示されます。
             </p>
+          )}
+        </section>
+
+        {/* 収集予定の登録 */}
+        <section
+          id="schedule"
+          className="bg-white rounded-2xl p-5 md:p-7 shadow-sm"
+        >
+          <div className="flex items-center gap-3 mb-5">
+            <span className="text-2xl">📅</span>
+            <div>
+              <h2 className="text-xl font-bold">収集予定の登録</h2>
+              <p className="text-sm text-slate-500">
+                収集日と搬出に必要な情報を記録しましょう。
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <label className="text-sm font-semibold">
+              収集日
+              <input
+                type="date"
+                value={pickupDate}
+                onChange={(e) => setPickupDate(e.target.value)}
+                className="block w-full mt-2 border border-slate-300 rounded-xl px-3 py-3 font-normal"
+              />
+            </label>
+
+            <label className="text-sm font-semibold">
+              粗大ゴミを出す場所
+              <input
+                value={pickupPlace}
+                onChange={(e) => setPickupPlace(e.target.value)}
+                placeholder="例：自宅前の指定場所"
+                className="block w-full mt-2 border border-slate-300 rounded-xl px-3 py-3 font-normal"
+              />
+            </label>
+
+            <div className="text-sm font-semibold sm:col-span-2">
+              <p>処理券について</p>
+
+              <div className="mt-2 rounded-xl border border-slate-300 bg-slate-50 px-4 py-3 font-normal">
+                {ticketRequirements.length > 0 ? (
+                  <ul className="space-y-2">
+                    {ticketRequirements.map((ticket) => (
+                      <li key={`${ticket.name}-${ticket.price}`}>
+                        {ticket.name}　{ticket.price}円分 × {ticket.count}枚
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-slate-500">
+                    搬出チェックリストに品目を追加すると、必要な処理券が表示されます。
+                  </p>
+                )}
+              </div>
+            </div>
+          </div>
+
+          {pickupDate && (
+            <div className="mt-5 rounded-xl bg-amber-50 border border-amber-200 p-5">
+              <p className="font-bold text-amber-900">🔔 前日の確認予定</p>
+              <p className="text-sm text-amber-800 mt-2">
+                {reminderDate} に、以下の内容を確認しましょう。
+              </p>
+              <ul className="text-sm text-amber-900 mt-3 space-y-2">
+                <li>
+                  • 処理券：
+                  {ticketRequirements.length > 0
+                    ? ticketRequirements
+                        .map(
+                          (ticket) =>
+                            `${ticket.name} ${ticket.price}円分 × ${ticket.count}枚`,
+                        )
+                        .join("、")
+                    : "搬出リストに品目がありません"}
+                </li>
+                <li>• 搬出場所：{pickupPlace || "未登録"}</li>
+                <li>
+                  • 出すもの：
+                  {items.length > 0
+                    ? items.map((item) => item.name).join("、")
+                    : "搬出リストは空です"}
+                </li>
+              </ul>
+            </div>
           )}
         </section>
 

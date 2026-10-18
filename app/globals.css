@@ -41,10 +41,10 @@ svg {
   flex-shrink:0;
   vertical-align:middle
 }
-button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,label:focus-within {
+/*button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,label:focus-within {
   outline:3px solid #c78c31;
   outline-offset:4px
-}
+}*/
 .site-shell {
   max-width:1180px;
   margin:auto;
@@ -708,3 +708,44 @@ footer span {
 
 }
 
+/* --- スマートフォン・モバイル対応レスポンシブ CSS --- */
+
+/* 全体の横揺れ・はみ出し防止 */
+html, body {
+  overflow-x: hidden;
+}
+
+/* スマホ用スタイル（画面幅 640px 以下） */
+@media (max-width: 640px) {
+  /* ヘッダーのレイアウト調整 */
+  header div {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    gap: 0.5rem;
+  }
+  
+  header h1 {
+    font-size: 1.125rem !important; /* 18px */
+  }
+
+  /* メインビジュアルのフォントサイズ調整 */
+  section h2 {
+    font-size: 1.5rem !important; /* 24px */
+    line-height: 1.3 !important;
+  }
+
+  /* 入力フォームとボタンの最適化 */
+  input, select, button {
+    font-size: 16px !important; /* iOSでズームインされるのを防止 */
+  }
+
+  /* モバイルでのタップ領域確保 */
+  button, a {
+    min-height: 44px;
+  }
+
+  /* チェックリスト・カード要素のパディング調整 */
+  .shadow-sm, section {
+    padding: 1rem !important;
+  }
+}

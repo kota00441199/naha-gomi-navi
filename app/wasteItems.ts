@@ -6,13 +6,40 @@ export type WasteItem = {
   ticketCount: number | null;
 };
 
+export const SODAI_TICKET = {
+  gomi: "sodai",
+  name: "粗大ゴミ処理券",
+  unitPrice: 300,
+} as const;
+
+// 適正処理困難物処理券（品目ごとに金額が異なる）
+export const DIFFICULT_TICKET = {
+  gomi: "difficult",
+  name: "適正処理困難物処理券",
+  items: {
+    springMattress: { name: "スプリング入りマットレス", price: 2600 },
+    springSofa: { name: "スプリング入りソファー（2人掛け以上）", price: 1940 },
+  },
+} as const;
+
+export interface Ticket {
+  gomi: string;
+  name: string;
+  price: number; // 手数料
+  ticketType: TicketType;
+}
+
+// 品目の型
+export type TicketType =
+  | typeof SODAI_TICKET.gomi
+  | typeof DIFFICULT_TICKET.gomi;
+
 export const categories = [
   "すべて",
   "家事日用品",
   "家具・寝具",
   "家電製品",
   "趣味・園芸・工具用品",
-  "その他のもの",
   "収納庫・室外用品",
   "自転車類",
   "スポーツ・レジャー・遊具",
@@ -21,6 +48,7 @@ export const categories = [
   "敷物・室内用品",
   "ＯＡ機器",
   "乳幼児製品",
+  "その他のもの",
 ];
 
 export const wasteItems: WasteItem[] = [
