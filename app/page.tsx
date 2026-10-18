@@ -1,26 +1,65 @@
+"use client";
 
-'use client';
 import { useMemo, useState } from "react";
-import {
-  wasteItems,
-  type WasteItem,
-} from "./wasteItems";
-import { categories } from "./wastelist";
 import { useRouter } from "next/navigation";
+import { wasteItems, type WasteItem } from "./wasteItems";
+import { categories } from "./wastelist";
 
 type ScheduledItem = WasteItem & {
   collected: boolean;
 };
 
-
-
-
-
 // 自治体の正式な申し込みURLに変更してください
 const APPLICATION_URL = "";
 
+// 沖縄県の市町村一覧
+const regions = [
+  "那覇市",
+  "宜野湾市",
+  "石垣市",
+  "浦添市",
+  "名護市",
+  "糸満市",
+  "沖縄市",
+  "豊見城市",
+  "うるま市",
+  "宮古島市",
+  "南城市",
+  "国頭村",
+  "大宜味村",
+  "東村",
+  "今帰仁村",
+  "本部町",
+  "恩納村",
+  "宜野座村",
+  "金武町",
+  "伊江村",
+  "読谷村",
+  "嘉手納町",
+  "北谷町",
+  "北中城村",
+  "中城村",
+  "西原町",
+  "与那原町",
+  "南風原町",
+  "久米島町",
+  "渡嘉敷村",
+  "座間味村",
+  "粟国村",
+  "渡名喜村",
+  "南大東村",
+  "北大東村",
+  "伊平屋村",
+  "伊是名村",
+  "八重瀬町",
+  "多良間村",
+  "竹富町",
+  "与那国町",
+];
+
 export default function App() {
-    const router = useRouter();
+  const router = useRouter();
+  const [selectedRegion, setSelectedRegion] = useState("");
   const [query, setQuery] = useState("");
   const [showList, setShowList] = useState(false);
   const [category, setCategory] = useState("すべて");
@@ -37,15 +76,14 @@ export default function App() {
     if (!keyword) return [];
 
     return wasteItems.filter((item) =>
-      item.name.toLowerCase().includes(keyword)
+      item.name.toLowerCase().includes(keyword),
     );
   }, [query]);
 
   // ジャンルごとに候補を絞り込む
   const filteredItems = useMemo(() => {
     return wasteItems.filter(
-      (item) =>
-        category === "すべて" || item.category === category
+      (item) => category === "すべて" || item.category === category,
     );
   }, [category]);
 
@@ -64,10 +102,8 @@ export default function App() {
   const toggleCollected = (id: number) => {
     setItems((prev) =>
       prev.map((item) =>
-        item.id === id
-          ? { ...item, collected: !item.collected }
-          : item
-      )
+        item.id === id ? { ...item, collected: !item.collected } : item,
+      ),
     );
   };
 
@@ -78,57 +114,8 @@ export default function App() {
     const date = new Date(`${pickupDate}T12:00:00`);
     date.setDate(date.getDate() - 1);
 
-    return `${date.getFullYear()}年${
-      date.getMonth() + 1
-    }月${date.getDate()}日`;
+    return `${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`;
   }, [pickupDate]);
-
-  const [selectedRegion, setSelectedRegion] = useState("");
-
-  // 沖縄県の市町村一覧
-  const regions = [
-    "那覇市",
-    "宜野湾市",
-    "石垣市",
-    "浦添市",
-    "名護市",
-    "糸満市",
-    "沖縄市",
-    "豊見城市",
-    "うるま市",
-    "宮古島市",
-    "南城市",
-    "国頭村",
-    "大宜味村",
-    "東村",
-    "今帰仁村",
-    "本部町",
-    "恩納村",
-    "宜野座村",
-    "金武町",
-    "伊江村",
-    "読谷村",
-    "嘉手納町",
-    "北谷町",
-    "北中城村",
-    "中城村",
-    "西原町",
-    "与那原町",
-    "南風原町",
-    "久米島町",
-    "渡嘉敷村",
-    "座間味村",
-    "粟国村",
-    "渡名喜村",
-    "南大東村",
-    "北大東村",
-    "伊平屋村",
-    "伊是名村",
-    "八重瀬町",
-    "多良間村",
-    "竹富町",
-    "与那国町",
-  ];
 
   return (
     <div className="min-h-screen bg-emerald-50 text-slate-800">
@@ -146,7 +133,7 @@ export default function App() {
               </p>
             </div>
           </a>
-            
+
           <a
             href="#schedule"
             className="text-sm font-semibold text-emerald-700 hover:text-emerald-900"
@@ -176,38 +163,31 @@ export default function App() {
 
         {/* 検索エリア */}
         <div className="mx-auto max-w-md">
-        <label
-          htmlFor="region"
-          className="mb-2 block font-bold"
-        >
-          市町村を選択してください
-        </label>
+          <label htmlFor="region" className="mb-2 block font-bold">
+            市町村を選択してください
+          </label>
 
-        <select
-          id="region"
-          value={selectedRegion}
-          onChange={(e) => setSelectedRegion(e.target.value)}
-          className="w-full rounded-xl border border-gray-300 p-3"
-        >
-          <option value="">市町村を選択</option>
+          <select
+            id="region"
+            value={selectedRegion}
+            onChange={(e) => setSelectedRegion(e.target.value)}
+            className="w-full rounded-xl border border-gray-300 p-3"
+          >
+            <option value="">市町村を選択</option>
 
-          {regions.map((region) => (
-            <option key={region} value={region}>
-              {region}
-            </option>
-          ))}
-        </select>
+            {regions.map((region) => (
+              <option key={region} value={region}>
+                {region}
+              </option>
+            ))}
+          </select>
 
-        {selectedRegion && (
-          <p className="mt-4">
-            選択した市町村：{selectedRegion}
-          </p>
-        )}
-      </div>
+          {selectedRegion && (
+            <p className="mt-4">選択した市町村：{selectedRegion}</p>
+          )}
+        </div>
         <section className="bg-white rounded-2xl p-5 md:p-7 shadow-sm">
-          <h2 className="text-xl font-bold mb-2">
-            何を捨てますか？
-          </h2>
+          <h2 className="text-xl font-bold mb-2">何を捨てますか？</h2>
           <p className="text-sm text-slate-500 mb-5">
             用具名を入力して、該当する粗大ゴミを探しましょう。
           </p>
@@ -250,11 +230,11 @@ export default function App() {
             </div>
 
             <button
-          onClick={() => router.push("/waste-list")}
-          className="rounded-xl bg-sky-500 px-6 py-3 font-bold text-white hover:bg-sky-600"
-        >
-          リストから探す
-        </button>
+              onClick={() => router.push("/waste-list")}
+              className="rounded-xl bg-sky-500 px-6 py-3 font-bold text-white hover:bg-sky-600"
+            >
+              リストから探す
+            </button>
           </div>
 
           {/* ジャンル選択 */}
@@ -305,9 +285,7 @@ export default function App() {
               <p className="text-sm text-emerald-700 font-semibold">
                 選択した用具
               </p>
-              <h3 className="text-xl font-bold mt-1">
-                {selectedItem.name}
-              </h3>
+              <h3 className="text-xl font-bold mt-1">{selectedItem.name}</h3>
               <p className="text-sm text-slate-600 mt-2">
                 ジャンル：{selectedItem.category}
               </p>
@@ -378,9 +356,7 @@ export default function App() {
 
           {pickupDate && (
             <div className="mt-5 rounded-xl bg-amber-50 border border-amber-200 p-5">
-              <p className="font-bold text-amber-900">
-                🔔 前日の確認予定
-              </p>
+              <p className="font-bold text-amber-900">🔔 前日の確認予定</p>
               <p className="text-sm text-amber-800 mt-2">
                 {reminderDate} に、以下の内容を確認しましょう。
               </p>
@@ -408,7 +384,8 @@ export default function App() {
               </p>
             </div>
             <span className="rounded-full bg-emerald-100 text-emerald-800 px-3 py-1 text-sm font-bold">
-              {items.filter((item) => item.collected).length}/{items.length} 完了
+              {items.filter((item) => item.collected).length}/{items.length}{" "}
+              完了
             </span>
           </div>
 
@@ -435,9 +412,7 @@ export default function App() {
                   />
                   <span
                     className={`flex-1 font-semibold ${
-                      item.collected
-                        ? "line-through text-slate-400"
-                        : ""
+                      item.collected ? "line-through text-slate-400" : ""
                     }`}
                   >
                     {item.name}
@@ -447,9 +422,7 @@ export default function App() {
                   </span>
                   <span
                     className={`text-sm font-semibold ${
-                      item.collected
-                        ? "text-emerald-700"
-                        : "text-slate-400"
+                      item.collected ? "text-emerald-700" : "text-slate-400"
                     }`}
                   >
                     {item.collected ? "搬出済み ✓" : "未搬出"}
@@ -489,8 +462,7 @@ export default function App() {
             </a>
           ) : (
             <p className="text-sm text-amber-800 bg-amber-50 rounded-xl p-4">
-              自治体の申し込みURLを設定すると、
-              ここにリンクが表示されます。
+              自治体の申し込みURLを設定すると、 ここにリンクが表示されます。
             </p>
           )}
         </section>
@@ -501,4 +473,4 @@ export default function App() {
       </main>
     </div>
   );
-};
+}
