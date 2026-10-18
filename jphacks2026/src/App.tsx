@@ -1,8 +1,8 @@
 
 'use client';
 import { useEffect, useMemo, useState } from "react";
-import {wasteItems, type WasteItem,} from "./nahagomidata";
-import {SODAI_TICKET,DIFFICULT_TICKET} from "./nahagomidata";
+import { wasteItems, type WasteItem } from "./nahagomidata";
+import { SODAI_TICKET, DIFFICULT_TICKET } from "./nahagomidata";
 import { categories } from "./nahagomidata";
 import { useNavigate } from "react-router-dom";
 
@@ -276,7 +276,7 @@ return Array.from(summaries.values());
                 すっきり回収ナビ
               </h1>
               <p className="text-xs text-slate-500">
-                粗大ごみの分別・申し込み管理アプリ
+                粗大ゴミの分別・申し込み管理アプリ
               </p>
             </div>
           </a>
@@ -297,7 +297,7 @@ return Array.from(summaries.values());
             SMART WASTE GUIDE
           </p>
           <h2 className="text-3xl md:text-4xl font-bold leading-relaxed">
-            粗大ごみ
+            粗大ゴミ、
             <br />
             迷わず片付けよう。
           </h2>
@@ -308,9 +308,9 @@ return Array.from(summaries.values());
           </p>
         </section>
 
-       {/* 検索エリア */}
+        {/* 検索エリア */}
         <div className="mx-auto max-w-md">
-{/*        <label
+        <label
           htmlFor="region"
           className="mb-2 block font-bold"
         >
@@ -333,7 +333,7 @@ return Array.from(summaries.values());
             </option>
           ))}
         </select>
-*/}
+
         {selectedRegion && (
           <p className="mt-4">
             選択した市町村：{selectedRegion}
@@ -345,7 +345,7 @@ return Array.from(summaries.values());
             何を捨てますか？
           </h2>
           <p className="text-sm text-slate-500 mb-5">
-            用具名を入力して、該当する粗大ごみを探しましょう。
+            用具名を入力して、該当する粗大ゴミを探しましょう。
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3">
@@ -513,10 +513,10 @@ return Array.from(summaries.values());
 
           {items.length === 0 ? (
             <div className="text-center py-10 rounded-xl bg-slate-50">
-              <p className="text-3xl mb-3">🗑️</p>
+              <p className="text-3xl mb-3">🧹</p>
               <p className="font-semibold">まだ用具が登録されていません</p>
               <p className="text-sm text-slate-500 mt-2">
-                上の検索欄から粗大ごみを追加してください。
+                上の検索欄から粗大ゴミを追加してください。
               </p>
             </div>
           ) : (
