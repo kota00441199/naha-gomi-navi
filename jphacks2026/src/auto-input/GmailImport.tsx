@@ -1,5 +1,5 @@
 import {useEffect,useState} from 'react';
-export default function GmailImport({onLink}:{onLink:(link:string)=>void}) {
+export default function GmailImport({onLink,onSessionExpired}:{onLink:(link:string)=>void;onSessionExpired:()=>void}) {
  const [configured,setConfigured]=useState<boolean|null>(null),[connected,setConnected]=useState(false),[watching,setWatching]=useState(false),[message,setMessage]=useState('Gmail接続を確認しています…');
  useEffect(()=>{
   let stopped=false,running=false;
@@ -8,7 +8,7 @@ export default function GmailImport({onLink}:{onLink:(link:string)=>void}) {
    if(running)return;running=true;
    try{
     const status=await fetch('/api/automation/gmail/status');
-    const state=await status.json();if(!status.ok)throw Error(state.error||'Gmail接続を確認できません。');
+    const state=await status.json();if(status.status===401){if(!stopped)onSessionExpired();return;}if(!status.ok)throw Error(state.error||'Gmail接続を確認できません。');
     if(stopped)return;
     setConfigured(state.configured);setConnected(state.connected);setMessage(current=>current==='Gmail接続を確認しています…'?'':current);
     if(!watching)return;
@@ -24,7 +24,7 @@ export default function GmailImport({onLink}:{onLink:(link:string)=>void}) {
   }
   void check();const timer=setInterval(()=>void check(),5000);
   return()=>{stopped=true;clearInterval(timer);};
- },[watching,onLink]);
+ },[watching,onLink,onSessionExpired]);
  async function connect(){
   const popup=window.open('about:blank','naha-gmail-connect','popup,width=520,height=720');
   if(!popup){setMessage('ポップアップを許可してから、もう一度接続してください。');return;}

@@ -28,3 +28,7 @@
 .auto-input-page .remote-image { max-width: 100%; height: auto; }
 .auto-input-page :focus-visible { outline: 3px solid #d6a741; outline-offset: 3px; }
 @media(max-width: 600px) { .auto-input-page .profile-grid { grid-template-columns: 1fr; } .auto-input-page .automation-body { padding: 14px; } .auto-input-page .plan-row { grid-template-columns: minmax(0,1fr) 60px auto; gap: 5px; } }
+
+.auto-input-page .postal-lookup { display:flex; flex-direction:column; gap:8px; min-width:0; }
+.auto-input-page .postal-lookup small { color:#52645b; line-height:1.5; }
+.auto-input-page .postal-lookup p { margin:0; font-size:14px; }
